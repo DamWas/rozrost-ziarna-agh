@@ -1,14 +1,14 @@
-public class Automat {
-
-	/**
+/**Klasa definuj¹ca najwa¿niejsze elementy automtu komórkowego.
 	 * @author Mateusz Kaflowski, Marcin G³adosz, Krystian Bersztolc, Witold
 	 *         Gramatyka, Micha³ Grabarczyk
 	 * @version 1.0
 	 * @since 2013-05-24
 	 */
 
+public class Automat {
+
 	// POLA:------------------------
-	/** Rozmiar obszaru rozrostu */
+	/** Rozmiar obszaru rozrostu. */
 	public int size;
 	/**
 	 * Tablica posiadaj¹ca informacje o rodzaju ziarna w poszczególnych
@@ -25,7 +25,7 @@ public class Automat {
 	 * obszaru.
 	 */
 	public Cell cells[][];
-	/** Zmienna okreœlaj¹ca periodycznoœæ */
+	/** Zmienna okreœlaj¹ca periodycznoœæ. */
 	public boolean isPeriodic = false;
 
 	// KONSTRUKTORY:----------------
