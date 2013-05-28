@@ -1,4 +1,4 @@
-import java.util.Collections;
+﻿import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -869,6 +869,185 @@ public class Rules {
             // ---------- koniec update by Krystian B. 28.05.2013
 
 
+
+
+
+/** Funkcja zwracająca sasieada najczęściej występującego w sąsiedztwie Moor'a z periodycznością.
+         * @param x pozioma współrzędna badanego ziarna
+         * @param y pionowa współrzędna badanego ziarna
+         * @param tab obszar w jakim znajduje się ziarno
+         * @param size rozmiar obszaru
+         * @return ID ziarna najczęściej występującego w sąsiedztwie. 0 dla braku sąsiadów
+         */
+        public static int calcMooreP(int x, int y, int tab[][], int size) {
+ 
+                List<Integer> colors = new LinkedList<Integer>();
+                int predominant = 0;
+ 
+                // góra:-------------------
+                if (y == 0) {
+                        if (x == 0)
+                                colors.add(tab[size - 1][size - 1]);
+                        else
+                                colors.add(tab[x - 1][size - 1]);
+                        colors.add(tab[x][size - 1]);
+                        if (x == size - 1)
+                                colors.add(tab[0][size - 1]);
+                        else
+                                colors.add(tab[x + 1][size - 1]);
+                } else {
+                        if (x == 0)
+                                colors.add(tab[size - 1][y - 1]);
+                        else
+                                colors.add(tab[x - 1][y - 1]);
+                        colors.add(tab[x][y - 1]);
+                        if (x == size - 1)
+                                colors.add(tab[0][y - 1]);
+                        else
+                                colors.add(tab[x + 1][y - 1]);
+                }
+ 
+                // dół:------------------
+                if (y == size - 1) {
+                        if (x == 0)
+                                colors.add(tab[size - 1][0]);
+                        else
+                                colors.add(tab[x - 1][0]);
+                        colors.add(tab[x][0]);
+                        if (x == size - 1)
+                                colors.add(tab[0][0]);
+                        else
+                                colors.add(tab[x + 1][0]);
+                } else {
+                        if (x == 0)
+                                colors.add(tab[size - 1][y + 1]);
+                        else
+                                colors.add(tab[x - 1][y + 1]);
+                        colors.add(tab[x][y + 1]);
+                        if (x == size - 1)
+                                colors.add(tab[0][y + 1]);
+                        else
+                                colors.add(tab[x + 1][y + 1]);
+                }
+ 
+                // lewo:-------------------
+                if (x == 0) {
+                        colors.add(tab[size - 1][y]);
+                } else {
+                        colors.add(tab[x - 1][y]);
+                }
+ 
+                // prawo:--------------------
+                if (x == size - 1) {
+                        colors.add(tab[0][y]);
+                } else {
+                        colors.add(tab[x + 1][y]);
+                }
+ 
+                predominant = getTheMostPopular(colors);
+ 
+                return predominant;
+        }
+ 
+        /** Funkcja zwracająca sasieada najczęściej występującego w sąsiedztwie von Neumana z periodycznością.
+         * @param x pozioma współrzędna badanego ziarna
+         * @param y pionowa współrzędna badanego ziarna
+         * @param tab obszar w jakim znajduje się ziarno
+         * @param size rozmiar obszaru
+         * @return ID ziarna najczęściej występującego w sąsiedztwie. 0 dla braku sąsiadów
+         */
+        public static int calcVNP(int x, int y, int tab[][], int size) {
+ 
+                List<Integer> colors = new LinkedList<Integer>();
+                int predominant = 0;
+ 
+                // góra:-------------------
+                if (y == 0) {
+                        colors.add(tab[x][size - 1]);
+                } else {
+                        colors.add(tab[x][y - 1]);
+                }
+ 
+                // dół:------------------
+                if (y == size - 1) {
+ 
+                        colors.add(tab[x][0]);
+ 
+                } else {
+ 
+                        colors.add(tab[x][y + 1]);
+ 
+                }
+ 
+                // lewo:-------------------
+                if (x == 0) {
+                        colors.add(tab[size - 1][y]);
+                } else {
+                        colors.add(tab[x - 1][y]);
+                }
+ 
+                // prawo:--------------------
+                if (x == size - 1) {
+                        colors.add(tab[0][y]);
+                } else {
+                        colors.add(tab[x + 1][y]);
+                }
+ 
+                predominant = getTheMostPopular(colors);
+ 
+                return predominant;
+        }
+ 
+        /** Funkcja zwracająca sasieada najczęściej występującego w sąsiedztwie von Neumana.
+         * @param x pozioma współrzędna badanego ziarna
+         * @param y pionowa współrzędna badanego ziarna
+         * @param tab obszar w jakim znajduje się ziarno
+         * @param size rozmiar obszaru
+         * @return ID ziarna najczęściej występującego w sąsiedztwie. 0 dla braku sąsiadów
+         */
+        public static int calcVN(int x, int y, int tab[][], int size) {
+ 
+                List<Integer> colors = new LinkedList<Integer>();
+                int predominant = 0;
+ 
+                // góra:-------------------
+                if (y == 0) {
+                        ;
+                } else {
+                        colors.add(tab[x][y - 1]);
+                }
+ 
+                // dół:------------------
+                if (y == size - 1) {
+ 
+                        ;
+ 
+                } else {
+ 
+                        colors.add(tab[x][y + 1]);
+ 
+                }
+ 
+                // lewo:-------------------
+                if (x == 0) {
+                        ;
+                } else {
+                        colors.add(tab[x - 1][y]);
+                }
+ 
+                // prawo:--------------------
+                if (x == size - 1) {
+                        ;
+                } else {
+                        colors.add(tab[x + 1][y]);
+                }
+ 
+                predominant = getTheMostPopular(colors);
+ 
+                return predominant;
+        }
+
+//---------------------------------UPDATE Marcin
 
 
 
