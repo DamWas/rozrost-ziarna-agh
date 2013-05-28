@@ -142,5 +142,21 @@ public class Automat {
 
 		tab = tmp;
 	}
+	
+	/**Funkcja czyszczaca obszar*/
+        public void clear() {
+                for (int i = 0; i < size; i++)
+                        for (int j = 0; j < size; j++)
+                                tab[i][j] = 0;
+        }
+ 
+        /**Funkcja ustawiajaca ziarna w podanym obszarze
+         * @param color rodzaj ziarna
+         * @param x wspólrzedna pozioma
+         * @param y wspólrzedna pionowa
+         */
+        public void setState(int color, int x, int y) {
+                tab[x][y] = color;
+        }
 
 }
