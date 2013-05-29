@@ -159,4 +159,32 @@ public class Automat {
                 tab[x][y] = color;
         }
 
+/**Funkcja generuj¹ca podan¹ iloœæ ró¿nych ziaren w losowych miejscach obszaru
+         * @param number liczba ziaren do wygenerowania
+         */
+        public void generateRandom(int number) {
+                Random rand = new Random();
+                int tmpx = 0, tmpy = 0;
+                tmpx = rand.nextInt(size);
+                tmpy = rand.nextInt(size);
+                for (int i = 0; i < number; i++) {
+                        // ograniczenie liczby prób losowania ¿eby program siê nie zawiesi³
+                        // przy braku wolnych miejsc
+                        int trials = 0;
+                        while (tab[tmpx][tmpy] != 0 && trials < 100) {
+                                tmpx = rand.nextInt(size);
+                                tmpy = rand.nextInt(size);
+                                trials++;
+                        }
+                        if (tab[tmpx][tmpy] == 0) {
+                                GameWindow.colorCounter++;
+                                GameWindow.colors.add(new Color(rand.nextInt(255), rand
+                                                .nextInt(255), rand.nextInt(255)));
+                                setState(GameWindow.colorCounter, tmpx, tmpy);
+                        }
+                }
+        }
+
+
+
 }
