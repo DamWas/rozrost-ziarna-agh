@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.util.Random;
 
 /**Klasa definuj¹ca najwa¿niejsze elementy automtu komórkowego.
