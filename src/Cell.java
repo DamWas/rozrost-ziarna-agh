@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**Klasa reprezentuj¹ca ziarno/komórkê
 	 * @author Mateusz Kaflowski, Marcin G³adosz, Krystian Bersztolc, Witold
 	 *         Gramatyka, Micha³ Grabarczyk
