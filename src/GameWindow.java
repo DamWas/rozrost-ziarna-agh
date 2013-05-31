@@ -53,6 +53,21 @@ public class GameWindow extends JPanel {
         public Dimension getPreferredSize() {
                 return new Dimension(500, 500);
         }
+
+		public void iterate() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void iterateMonteCarlo() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void iterateReclystallization() {
+			// TODO Auto-generated method stub
+			
+		}
  
  
 }
