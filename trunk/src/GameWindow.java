@@ -1,7 +1,10 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Random;
  
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
@@ -34,6 +37,17 @@ public class GameWindow extends JPanel {
  
                 automat = new Automat(100);
                 colors = new ArrayList<Color>();
+                
+                final Random rand = new Random();
+                addMouseListener(new MouseAdapter() {
+        			public void mousePressed(MouseEvent e) {
+        				colorCounter++;
+        				colors.add(new Color(rand.nextInt(255), rand.nextInt(255), rand
+        						.nextInt(255)));
+        				automat.setState(colorCounter, e.getX() / WIDTH, e.getY() / WIDTH);
+        				repaint();
+        			}
+        		});
         }
  
         public Dimension getPreferredSize() {
