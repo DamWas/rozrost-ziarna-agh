@@ -54,10 +54,20 @@ public class GameWindow extends JPanel {
                 return new Dimension(500, 500);
         }
 
-		public void iterate() {
-			// TODO Auto-generated method stub
-			
-		}
+        /**
+    	 * Funkcja generuj¹ca kolejny cykl ¿ycia ziaren.
+    	 */
+    	public void iterate() {
+    		while (true) {
+    			automat.genNext();
+    			repaint();
+    			try {
+    				Thread.sleep(delay);
+    			} catch (InterruptedException e) {
+    				e.printStackTrace();
+    			}
+    		}
+    	}
 
 		public void iterateMonteCarlo() {
 			// TODO Auto-generated method stub
