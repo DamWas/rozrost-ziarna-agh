@@ -1,12 +1,15 @@
 import java.awt.Color;
+import java.awt.Graphics;
 import java.util.Random;
 
-/**Klasa definuj¹ca najwa¿niejsze elementy automtu komórkowego.
-	 * @author Mateusz Kaflowski, Marcin G³adosz, Krystian Bersztolc, Witold
-	 *         Gramatyka, Micha³ Grabarczyk
-	 * @version 1.0
-	 * @since 2013-05-24
-	 */
+/**
+ * Klasa definuj¹ca najwa¿niejsze elementy automtu komórkowego.
+ * 
+ * @author Mateusz Kaflowski, Marcin G³adosz, Krystian Bersztolc, Witold
+ *         Gramatyka, Micha³ Grabarczyk
+ * @version 1.0
+ * @since 2013-05-24
+ */
 
 public class Automat {
 
@@ -50,14 +53,14 @@ public class Automat {
 				cells[i][j] = new Cell(i, j);
 
 	}
-	
-	/**Funkcja generuj¹ca nastêpny cykl ¿ycia.*/
+
+	/** Funkcja generuj¹ca nastêpny cykl ¿ycia. */
 	public void genNext() {
 		int tmp[][] = new int[size][size];
 
 		for (int x = 0; x < size; x++)
 			for (int y = 0; y < size; y++) {
-				int selected = 0; //TODO: wybor opcji z jakiegoœ comboBoxa
+				int selected = MyWindow.comboBox.getSelectedIndex();
 				if (selected == 8) {
 					Random rand = new Random();
 					selected = rand.nextInt(8);
@@ -143,68 +146,78 @@ public class Automat {
 
 		tab = tmp;
 	}
-	
-	/**Funkcja czyszczaca obszar*/
-        public void clear() {
-                for (int i = 0; i < size; i++)
-                        for (int j = 0; j < size; j++)
-                                tab[i][j] = 0;
-        }
- 
-        /**Funkcja ustawiajaca ziarna w podanym obszarze
-         * @param color rodzaj ziarna
-         * @param x wspólrzedna pozioma
-         * @param y wspólrzedna pionowa
-         */
-        public void setState(int color, int x, int y) {
-                tab[x][y] = color;
-        }
 
-/**Funkcja generuj¹ca podan¹ iloœæ ró¿nych ziaren w losowych miejscach obszaru
-         * @param number liczba ziaren do wygenerowania
-         */
-        public void generateRandom(int number) {
-                Random rand = new Random();
-                int tmpx = 0, tmpy = 0;
-                tmpx = rand.nextInt(size);
-                tmpy = rand.nextInt(size);
-                for (int i = 0; i < number; i++) {
-                        // ograniczenie liczby prób losowania ¿eby program siê nie zawiesi³
-                        // przy braku wolnych miejsc
-                        int trials = 0;
-                        while (tab[tmpx][tmpy] != 0 && trials < 100) {
-                                tmpx = rand.nextInt(size);
-                                tmpy = rand.nextInt(size);
-                                trials++;
-                        }
-                        if (tab[tmpx][tmpy] == 0) {
-                                GameWindow.colorCounter++;
-                                GameWindow.colors.add(new Color(rand.nextInt(255), rand
-                                                .nextInt(255), rand.nextInt(255)));
-                                setState(GameWindow.colorCounter, tmpx, tmpy);
-                        }
-                }
-        }
+	/** Funkcja czyszczaca obszar */
+	public void clear() {
+		for (int i = 0; i < size; i++)
+			for (int j = 0; j < size; j++)
+				tab[i][j] = 0;
+	}
 
-/**Funkcja rysuj¹ca uk³ad powierzchni.
-         *@param g obiekt graficzny na którym rysujemy
-         */
-        public void printTab(Graphics g) {
-                g.setColor(Color.BLACK);
-                g.fillRect(0, 0, 500, 500);
-                g.setColor(new Color(255, 110, 180));
-                for (int x = 0; x < size; x++) {
-                        for (int y = 0; y < size; y++) {
-                                if (tab[x][y] != 0) {
-                                        g.setColor(GameWindow.colors.get(tab[x][y] - 1));
-                                        g.fillOval(x * GameWindow.WIDTH, y * GameWindow.WIDTH,
-                                                        GameWindow.WIDTH * GameWindow.thickness,
-                                                        GameWindow.WIDTH * GameWindow.thickness);
-                                }
-                        }
-                }
-        }
+	/**
+	 * Funkcja ustawiajaca ziarna w podanym obszarze
+	 * 
+	 * @param color
+	 *            rodzaj ziarna
+	 * @param x
+	 *            wspólrzedna pozioma
+	 * @param y
+	 *            wspólrzedna pionowa
+	 */
+	public void setState(int color, int x, int y) {
+		tab[x][y] = color;
+	}
 
+	/**
+	 * Funkcja generuj¹ca podan¹ iloœæ ró¿nych ziaren w losowych miejscach
+	 * obszaru
+	 * 
+	 * @param number
+	 *            liczba ziaren do wygenerowania
+	 */
+	public void generateRandom(int number) {
+		Random rand = new Random();
+		int tmpx = 0, tmpy = 0;
+		tmpx = rand.nextInt(size);
+		tmpy = rand.nextInt(size);
+		for (int i = 0; i < number; i++) {
+			// ograniczenie liczby prób losowania ¿eby program siê nie zawiesi³
+			// przy braku wolnych miejsc
+			int trials = 0;
+			while (tab[tmpx][tmpy] != 0 && trials < 100) {
+				tmpx = rand.nextInt(size);
+				tmpy = rand.nextInt(size);
+				trials++;
+			}
+			if (tab[tmpx][tmpy] == 0) {
+				GameWindow.colorCounter++;
+				GameWindow.colors.add(new Color(rand.nextInt(255), rand
+						.nextInt(255), rand.nextInt(255)));
+				setState(GameWindow.colorCounter, tmpx, tmpy);
+			}
+		}
+	}
 
+	/**
+	 * Funkcja rysuj¹ca uk³ad powierzchni.
+	 * 
+	 * @param g
+	 *            obiekt graficzny na którym rysujemy
+	 */
+	public void printTab(Graphics g) {
+		g.setColor(Color.BLACK);
+		g.fillRect(0, 0, 500, 500);
+		g.setColor(new Color(255, 110, 180));
+		for (int x = 0; x < size; x++) {
+			for (int y = 0; y < size; y++) {
+				if (tab[x][y] != 0) {
+					g.setColor(GameWindow.colors.get(tab[x][y] - 1));
+					g.fillOval(x * GameWindow.WIDTH, y * GameWindow.WIDTH,
+							GameWindow.WIDTH * GameWindow.thickness,
+							GameWindow.WIDTH * GameWindow.thickness);
+				}
+			}
+		}
+	}
 
 }
