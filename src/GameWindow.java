@@ -78,6 +78,20 @@ public class GameWindow extends JPanel {
 			// TODO Auto-generated method stub
 			
 		}
+
+/**
+         * Funkcja czyszcz¹ca obszar.
+         */
+        public void clear() {
+                automat.clear();
+                repaint();
+        }
+ 
+        @Override
+        synchronized protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                automat.printTab(g);
+        }
  
  
 }
