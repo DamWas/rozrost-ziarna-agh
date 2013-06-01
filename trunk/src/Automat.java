@@ -186,6 +186,25 @@ public class Automat {
                 }
         }
 
+/**Funkcja rysuj¹ca uk³ad powierzchni.
+         *@param g obiekt graficzny na którym rysujemy
+         */
+        public void printTab(Graphics g) {
+                g.setColor(Color.BLACK);
+                g.fillRect(0, 0, 500, 500);
+                g.setColor(new Color(255, 110, 180));
+                for (int x = 0; x < size; x++) {
+                        for (int y = 0; y < size; y++) {
+                                if (tab[x][y] != 0) {
+                                        g.setColor(GameWindow.colors.get(tab[x][y] - 1));
+                                        g.fillOval(x * GameWindow.WIDTH, y * GameWindow.WIDTH,
+                                                        GameWindow.WIDTH * GameWindow.thickness,
+                                                        GameWindow.WIDTH * GameWindow.thickness);
+                                }
+                        }
+                }
+        }
+
 
 
 }
