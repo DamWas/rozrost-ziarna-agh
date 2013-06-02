@@ -48,6 +48,13 @@ public class GameWindow extends JPanel {
         				repaint();
         			}
         		});
+
+		addMouseMotionListener(new MouseAdapter() {
+                        public void mouseDragged(MouseEvent e) {
+                                automat.setState(colorCounter, e.getX() / WIDTH, e.getY() / WIDTH);
+                                repaint();
+                        }
+                });
         }
  
         public Dimension getPreferredSize() {
