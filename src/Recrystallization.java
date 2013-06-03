@@ -56,7 +56,7 @@ public class Recrystallization {
                 }
         }
  
-        /**Sprawdzanie czy komorka zrekrystalizowa³a i rozrost zrekrystalizowanych ziarem*/
+        /**Sprawdzanie czy komorka zrekrystalizowa³a i rozrost zrekrystalizowanych ziaren*/
         public static void updateState() {
                 GameWindow.automat.genNextR();
                 for (int i = 0; i < GameWindow.automat.size; i++)
