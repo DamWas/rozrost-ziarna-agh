@@ -72,9 +72,9 @@ public class Automat {
 			for (int y = 0; y < size; y++) { // po y powinno w ogole nie iterowac, wysyla wiadomosc 
 											 //	procesu ktory wiersz ma przerobic i on sobie iteruje po y
 				
-				msgTo1[0]=x;
-				msgTo2[0]=x+1;
-				msgTo3[0]=x+2;
+				msgTo1[0]=x;		// pierwszy proces dostaje x'owy wiersz
+				msgTo2[0]=x+1;		// drugi dostaje nast wiersz
+				msgTo3[0]=x+2;		// trzeci dostaje kolejny
 				
 				
 				Request sReq1 = 	MPI.COMM_WORLD.Isend(msgTo1, 0, msgTo1.length, MPI.INT, 1, 99);
