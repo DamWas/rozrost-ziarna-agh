@@ -10,7 +10,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
  
 /**Klasa wizualizujaca kolejne cykle zycia.
- * @author Mateusz Kaflowski, Marcin G³adosz, Krystian Bersztolc, Witold
+ * @author Mateusz Kaflowski, Marcin Gladosz, Krystian Bersztolc, Witold
  *         Gramatyka, Michal Grabarczyk
  * @version 1.0
  * @since 2013-05-27
