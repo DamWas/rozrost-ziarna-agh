@@ -2,6 +2,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 
+import mpi.MPI;
+import mpi.Request;
+
 /**
  * Klasa definujoca najwaoniejsze elementy automtu komorkowego.
  * 
@@ -46,7 +49,7 @@ public class Automat {
 		for (int i = 0; i < size; i++)
 			for (int j = 0; j < size; j++)
 				tabR[i][j] = 0;
-
+	
 		cells = new Cell[size][size];
 		for (int i = 0; i < size; i++)
 			for (int j = 0; j < size; j++)
@@ -56,13 +59,32 @@ public class Automat {
 
 	/** Funkcja generujoca nastopny cykl oycia. */
 	public void genNext() {
+		int rank = MPI.COMM_WORLD.Rank();
+		System.out.println("jestem proces : "+rank); // najstarsi gorale nie wiedza czemu bez tej linijki sypie bledami
 		
-		int tmp[][] = new int[size][size];
-		for (int x = 0; x < size; x++)
-			for (int y = 0; y < size; y++) {
-				switchNext(tmp,x,y);
+		int[] msgTo1	= {1};
+		int[] msgTo2	= {2};
+		int[] msgTo3	= {3};
+		
+		int tmp[][] = new int[size][size]; // tego nie powinno tu byc
+		
+		for (int x = 0; x < size ; x++) // powinno byc x+=3 zamiast x++ i x < size -3 zamiast x < size
+			for (int y = 0; y < size; y++) { // po y powinno w ogole nie iterowac, wysyla wiadomosc 
+											 //	procesu ktory wiersz ma przerobic i on sobie iteruje po y
+				
+				msgTo1[0]=x;
+				msgTo2[0]=x+1;
+				msgTo3[0]=x+2;
+				
+				
+				Request sReq1 = 	MPI.COMM_WORLD.Isend(msgTo1, 0, msgTo1.length, MPI.INT, 1, 99);
+				Request sReq2 = 	MPI.COMM_WORLD.Isend(msgTo2, 0, msgTo2.length, MPI.INT, 2, 99);
+				Request sReq3 = 	MPI.COMM_WORLD.Isend(msgTo3, 0, msgTo3.length, MPI.INT, 3, 99);
+			
+				
+				switchNext(tmp,x,y); // tego nie powinno tu byc
 			}
-		tab = tmp;
+		tab = tmp; // i tego tez nie 
 	}
 	
 	
@@ -75,6 +97,7 @@ public class Automat {
 	public static void switchNext(int[][] tmp, int x, int y) {
 		
 		int selected = MyWindow.comboBox.getSelectedIndex();
+		//int selected = 1;
 		if (selected == 8) {
 			Random rand = new Random();
 			selected = rand.nextInt(8);
@@ -85,8 +108,10 @@ public class Automat {
 			case 0:
 				if (isPeriodic)
 					tmp[x][y] = Rules.calcMooreP(x, y, tab, size);
-				else
+				else{
 					tmp[x][y] = Rules.calcMoore(x, y, tab, size);
+					
+				}
 				break;
 
 			case 1:
@@ -156,6 +181,7 @@ public class Automat {
 			}
 		else
 			tmp[x][y] = tab[x][y];
+	
 	}
 
 
