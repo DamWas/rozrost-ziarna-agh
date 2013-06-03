@@ -3,10 +3,10 @@ import java.awt.Graphics;
 import java.util.Random;
 
 /**
- * Klasa definuj¹ca najwa¿niejsze elementy automtu komórkowego.
+ * Klasa definujï¿½ca najwaï¿½niejsze elementy automtu komï¿½rkowego.
  * 
- * @author Mateusz Kaflowski, Marcin G³adosz, Krystian Bersztolc, Witold
- *         Gramatyka, Micha³ Grabarczyk
+ * @author Mateusz Kaflowski, Marcin Gï¿½adosz, Krystian Bersztolc, Witold
+ *         Gramatyka, Michaï¿½ Grabarczyk
  * @version 1.0
  * @since 2013-05-24
  */
@@ -17,21 +17,21 @@ public class Automat {
 	/** Rozmiar obszaru rozrostu. */
 	public int size;
 	/**
-	 * Tablica posiadaj¹ca informacje o rodzaju ziarna w poszczególnych
+	 * Tablica posiadajï¿½ca informacje o rodzaju ziarna w poszczegï¿½lnych
 	 * miejscach obszaru. 0 dla braku ziarna.
 	 */
 	public int tab[][];
 	/**
-	 * Tablica posiadaj¹ca informacje o rodzaju ziarna zrekrystalizowanego w
-	 * poszczególnych miejscach obszaru. 0 dla braku ziarna.
+	 * Tablica posiadajï¿½ca informacje o rodzaju ziarna zrekrystalizowanego w
+	 * poszczegï¿½lnych miejscach obszaru. 0 dla braku ziarna.
 	 */
 	public int tabR[][];
 	/**
-	 * Tablica posiadaj¹ca informacje ziarnach w poszczególnych miejscach
+	 * Tablica posiadajï¿½ca informacje ziarnach w poszczegï¿½lnych miejscach
 	 * obszaru.
 	 */
 	public Cell cells[][];
-	/** Zmienna okreœlaj¹ca periodycznoœæ. */
+	/** Zmienna okreï¿½lajï¿½ca periodycznoï¿½ï¿½. */
 	public boolean isPeriodic = false;
 
 	// KONSTRUKTORY:----------------
@@ -54,7 +54,7 @@ public class Automat {
 
 	}
 
-	/** Funkcja generuj¹ca nastêpny cykl ¿ycia. */
+	/** Funkcja generujï¿½ca nastï¿½pny cykl ï¿½ycia. */
 	public void genNext() {
 		int tmp[][] = new int[size][size];
 
@@ -147,7 +147,7 @@ public class Automat {
 		tab = tmp;
 	}
 
-	/** Funkcja generuj¹ca nastêpny cykl ¿ycia dla rekrystalizacji. */
+	/** Funkcja generujï¿½ca nastï¿½pny cykl ï¿½ycia dla rekrystalizacji. */
 	public void genNextR() {
                 int tmp[][] = new int[size][size];
  
@@ -225,8 +225,7 @@ public class Automat {
                                                 break;
                                         case 10:
                                                 if (isPeriodic)
-                                                        tmp[x][y] = Rules
-                                                                        .calcPentaRandomP(x, y, tabR, size);
+                                                        tmp[x][y] = Rules.calcPentaRandomP(x, y, tabR, size);
                                                 else
                                                         tmp[x][y] = Rules.calcPentaRandom(x, y, tabR, size);
                                                 break;
@@ -264,16 +263,16 @@ public class Automat {
 	 * @param color
 	 *            rodzaj ziarna
 	 * @param x
-	 *            wspólrzedna pozioma
+	 *            wspï¿½lrzedna pozioma
 	 * @param y
-	 *            wspólrzedna pionowa
+	 *            wspï¿½lrzedna pionowa
 	 */
 	public void setState(int color, int x, int y) {
 		tab[x][y] = color;
 	}
 
 	/**
-	 * Funkcja generuj¹ca podan¹ iloœæ ró¿nych ziaren w losowych miejscach
+	 * Funkcja generujï¿½ca podanï¿½ iloï¿½ï¿½ rï¿½nych ziaren w losowych miejscach
 	 * obszaru
 	 * 
 	 * @param number
@@ -285,7 +284,7 @@ public class Automat {
 		tmpx = rand.nextInt(size);
 		tmpy = rand.nextInt(size);
 		for (int i = 0; i < number; i++) {
-			// ograniczenie liczby prób losowania ¿eby program siê nie zawiesi³
+			// ograniczenie liczby prï¿½b losowania ï¿½eby program siï¿½ nie zawiesiï¿½
 			// przy braku wolnych miejsc
 			int trials = 0;
 			while (tab[tmpx][tmpy] != 0 && trials < 100) {
@@ -302,8 +301,8 @@ public class Automat {
 		}
 	}
 
-	/**Funkcja generuj¹ca podan¹ iloœæ ró¿nych ziaren w równych odstêpach.
-         * @param distance dystans miêdzy koleinymi ziarnami
+	/**Funkcja generujï¿½ca podanï¿½ iloï¿½ï¿½ rï¿½nych ziaren w rï¿½wnych odstï¿½pach.
+         * @param distance dystans miï¿½dzy koleinymi ziarnami
          */
         public void generateWithEqualDistance(int distance) {
                 Random rand = new Random();
@@ -317,10 +316,10 @@ public class Automat {
         }
 
 	/**
-	 * Funkcja rysuj¹ca uk³ad powierzchni.
+	 * Funkcja rysujï¿½ca ukï¿½ad powierzchni.
 	 * 
 	 * @param g
-	 *            obiekt graficzny na którym rysujemy
+	 *            obiekt graficzny na ktï¿½rym rysujemy
 	 */
 	public void printTab(Graphics g) {
 		g.setColor(Color.BLACK);
