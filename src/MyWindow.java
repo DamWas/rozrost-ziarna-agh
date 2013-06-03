@@ -11,6 +11,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import mpi.MPI;
+import mpi.Request;
+
 public class MyWindow extends JFrame {
 
 	private JPanel contentPane;
@@ -33,16 +36,80 @@ public class MyWindow extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MyWindow frame = new MyWindow();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
+		MPI.Init(args); // startujemy MPI z 4 procesami, w arg VM '-np 4'
+		
+		int size = MPI.COMM_WORLD.Size(); 
+		int rank = MPI.COMM_WORLD.Rank();
+		System.out.println("MPI wystartowalo, jestem proces : "+rank+" wszystkich procesow : "+size);
+		
+		if(rank == 0){ // proces 0 rozdziela zadania na inne procesy
+			EventQueue.invokeLater(new Runnable() {
+				public void run() {
+					try {
+						MyWindow frame = new MyWindow();
+						frame.setVisible(true);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
+			
+			});
+		}
+		
+		int counter = 0;
+		int maxCounter = 10000; // ograniczenie, proces moze dostac 5000 wiadomosci, co by mi przypadkiem procesor sie nie przegrzal o_O
+		
+		while(rank == 1 & counter < maxCounter){ // pierwszy proces
+			int []message=new int[2];
+			Request req = MPI.COMM_WORLD.Irecv(message, 0, message.length, MPI.INT, MPI.ANY_SOURCE, MPI.ANY_TAG);
+			req.Wait();
+			System.out.println("message z 1 : "+message[0]);
+			
+	/*		int tmp[][] = new int[sizee][sizee];
+			System.out.println("automat size : "+Automat.size);
+			for(int y = 0 ; y < sizee; y++){
+				Automat.switchNext(tmp, message[0], y);
 			}
-		});
+			Automat.tab = tmp;
+	*/		
+			counter++;
+		}
+		while(rank == 2 & counter < maxCounter){ // drugi proces
+			int []message=new int[2];
+			Request req = MPI.COMM_WORLD.Irecv(message, 0, message.length, MPI.INT, MPI.ANY_SOURCE, MPI.ANY_TAG);
+			req.Wait();
+			System.out.println("message z 2: "+message[0]);
+	
+	/*		int tmp[][] = new int[sizee][sizee];
+			System.out.println("automat size : "+Automat.size);
+			for(int y = 0 ; y < sizee; y++){
+				Automat.switchNext(tmp, message[0], y);
+			}
+			Automat.tab = tmp;
+	*/		
+			
+			counter++;
+		}
+		while(rank == 3 & counter < maxCounter){ // trzeci proces
+			int []message=new int[2];
+			Request req = MPI.COMM_WORLD.Irecv(message, 0, message.length, MPI.INT, MPI.ANY_SOURCE, MPI.ANY_TAG);
+			req.Wait();
+			System.out.println("message z 3: "+message[0]);
+			
+	/*		int tmp[][] = new int[sizee][sizee];
+			System.out.println("automat size : "+Automat.size);
+			for(int y = 0 ; y < sizee; y++){
+				Automat.switchNext(tmp, message[0], y);
+			}
+			Automat.tab = tmp;
+	*/		
+		
+			
+			counter++;
+		}
+		
+		
+		MPI.Finalize();
 	}
 
 	/**
@@ -90,7 +157,7 @@ public class MyWindow extends JFrame {
 		btnStart.setBounds(92, 42, 89, 23);
 		contentPane.add(btnStart);
 		
-		//wybór opcji dodawania
+		//wybï¿½r opcji dodawania
 		String options[] = {"Moore", "von Neuman", "Hex L", "Hex R", "Penta R", "Penta L", "Penta B", "Penta U", "RANDOM", "Hex RANDOM", "Penta RANDOM"};
 		comboBox = new JComboBox(options);
 		comboBox.setBounds(116, 197, 124, 20);
