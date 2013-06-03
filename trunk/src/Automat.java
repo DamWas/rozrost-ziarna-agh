@@ -6,10 +6,10 @@ import mpi.MPI;
 import mpi.Request;
 
 /**
- * Klasa definiujaca najwazniejsze elementy automtu komorkowego.
+ * Klasa definiujaca najwazniejsze elementy automatu komorkowego.
  * 
- * @author Mateusz Kaflowski, Marcin Goadosz, Krystian Bersztolc, Witold
- *         Gramatyka, Michao Grabarczyk
+ * @author Mateusz Kaflowski, Marcin Gladosz, Krystian Bersztolc, Witold
+ *         Gramatyka, Michal Grabarczyk
  * @version 1.0
  * @since 2013-05-24
  */
@@ -318,7 +318,7 @@ public class Automat {
 		tmpx = rand.nextInt(size);
 		tmpy = rand.nextInt(size);
 		for (int i = 0; i < number; i++) {
-			// ograniczenie liczby prob losowania oeby program sio nie zawiesio
+			// ograniczenie liczby prob losowania zeby program sie nie zawiesil
 			// przy braku wolnych miejsc
 			int trials = 0;
 			while (tab[tmpx][tmpy] != 0 && trials < 100) {
@@ -335,7 +335,7 @@ public class Automat {
 		}
 	}
 
-	/**Funkcja generujoca podana ilosc roznych ziaren w rownych odstepach.
+	/**Funkcja generujaca podana ilosc roznych ziaren w rownych odstepach.
          * @param distance dystans miedzy kolejnymi ziarnami
          */
         public void generateWithEqualDistance(int distance) {

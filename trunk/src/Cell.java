@@ -3,8 +3,8 @@ import java.util.Random;
 /**
  * Klasa reprezentujaca ziarno/komorke.½
  * 
- * @author Mateusz Kaflowski, Marcin Gïladosz, Krystian Bersztolc, Witold
- *         Gramatyka, Michaa Grabarczyk
+ * @author Mateusz Kaflowski, Marcin Gladosz, Krystian Bersztolc, Witold
+ *         Gramatyka, Michal Grabarczyk
  * @version 1.0
  * @since 2013-05-24
  */
@@ -46,7 +46,7 @@ public class Cell {
 		Recrystallization.dislocation -= toAdd;
 	}
 
-	/** Funkcja sparwdzajaca czy ziarno lezy na granicy */
+	/** Funkcja sprawdzajaca czy ziarno lezy na granicy */
 	public boolean isOnBorder() {
 		for (int i = -1; i <= 1; i++)
 			for (int j = -1; j <= 1; j++) {

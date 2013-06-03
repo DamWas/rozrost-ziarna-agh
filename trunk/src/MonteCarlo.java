@@ -6,7 +6,7 @@ import java.util.Random;
 Usprawnienia:
 - losowanie jedynie spoœrod sasiadow,
 - wiêksze prawdopodobieñstwo wylosowania elementu, ktory czêœciej wystêpuje.
- * @author Marcin G³adosz, Mateusz Kaflowski, Krystian Bersztolc, Witold
+ * @author Marcin Gladosz, Mateusz Kaflowski, Krystian Bersztolc, Witold
  *         Gramatyka, Michal Grabarczyk
  * @version 1.0
  * @since 2013-06-02

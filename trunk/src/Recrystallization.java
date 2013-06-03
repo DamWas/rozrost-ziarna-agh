@@ -4,8 +4,8 @@ import java.util.Random;
 /**
  * Klasa odpowiedzialna za rekrystalizacje i zazadzajaca nia.
  * 
- * @author Mateusz Kaflowski, Marcin Goadosz, Krystian Bersztolc, Witold
- *         Gramatyka, Michao Grabarczyk
+ * @author Mateusz Kaflowski, Marcin Gladosz, Krystian Bersztolc, Witold
+ *         Gramatyka, Michal Grabarczyk
  * @version 1.0
  * @since 2013-05-30
  */

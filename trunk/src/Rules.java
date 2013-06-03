@@ -15,7 +15,7 @@ import java.util.Random;
 
 public class Rules {
 	/**
-	 * Funkcja zwraca najczescie wystepujacy element z kolekcji.
+	 * Funkcja zwraca najczesciej wystepujacy element z kolekcji.
 	 * 
 	 * @param colors
 	 *            kolekcja do przeszukania
@@ -1206,6 +1206,5 @@ public class Rules {
 		return predominant;
 	}
 
-	// ---------------------------------UPDATE Marcin
 
 }
