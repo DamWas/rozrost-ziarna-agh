@@ -1,23 +1,19 @@
 import java.util.Random;
 
-/**Klasa reprezentuj¹ca ziarno/komórkê
-	 * @author Mateusz Kaflowski, Marcin G³adosz, Krystian Bersztolc, Witold
-	 *         Gramatyka, Micha³ Grabarczyk
+/**Klasa reprezentujï¿½ca ziarno/komï¿½rkï¿½
+	 * @author Mateusz Kaflowski, Marcin Gï¿½adosz, Krystian Bersztolc, Witold
+	 *         Gramatyka, Michaï¿½ Grabarczyk
 	 * @version 1.0
 	 * @since 2013-05-24
 	 */
 public class Cell {
- 	/**Liczba dyslokacji w komórce.*/
+ 	/**Liczba dyslokacji w komï¿½rce.*/
         double disloacation;
-        /**Po³o¿enie komórki.*/
+        /**Poï¿½oï¿½enie komï¿½rki.*/
         int x, y;
-        /**Zmienna mówi¹ca czy komórka zrekrystalizowa³a*/
+        /**Zmienna mï¿½wiï¿½ca czy komï¿½rka zrekrystalizowaï¿½a*/
         boolean recrystallized;
 	
-	public Cell(int i, int j) {
-		// TODO Auto-generated constructor stub
-	}
-
 		
  	/**
 	* konstruktor 
@@ -31,7 +27,7 @@ public class Cell {
                 recrystallized = false;
         }
 
-  	 /**Funkcja dodaj¹ca dyslokacjê do komórki
+  	 /**Funkcja dodajï¿½ca dyslokacjï¿½ do komï¿½rki
          * @param pDislocation dyslokacja do dodania
          */
         public void addDislocation(double pDislocation) {
@@ -45,7 +41,7 @@ public class Cell {
                 Recrystallization.dislocation -= toAdd;
         }
  
-        /**Funkcja sparwdzaj¹ca czy ziarno le¿y na granicy*/
+        /**Funkcja sparwdzajï¿½ca czy ziarno leï¿½y na granicy*/
         public boolean isOnBorder() {
                 for (int i = -1; i <= 1; i++)
                         for (int j = -1; j <= 1; j++) {
