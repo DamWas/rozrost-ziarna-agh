@@ -6,7 +6,7 @@ import mpi.MPI;
 import mpi.Request;
 
 /**
- * Klasa definujoca najwaoniejsze elementy automtu komorkowego.
+ * Klasa definiujaca najwazniejsze elementy automtu komorkowego.
  * 
  * @author Mateusz Kaflowski, Marcin Goadosz, Krystian Bersztolc, Witold
  *         Gramatyka, Michao Grabarczyk
@@ -57,7 +57,7 @@ public class Automat {
 
 	}
 
-	/** Funkcja generujoca nastopny cykl oycia. */
+	/** Funkcja generujaca nastepny cykl zycia. */
 	public void genNext() {
 		int rank = MPI.COMM_WORLD.Rank();
 		System.out.println("jestem proces : "+rank); // najstarsi gorale nie wiedza czemu bez tej linijki sypie bledami
@@ -306,7 +306,7 @@ public class Automat {
 	}
 
 	/**
-	 * Funkcja generujoca podano ilosc ronych ziaren w losowych miejscach
+	 * Funkcja generujaca podana ilosc roznych ziaren w losowych miejscach
 	 * obszaru.
 	 * 
 	 * @param number
@@ -335,8 +335,8 @@ public class Automat {
 		}
 	}
 
-	/**Funkcja generujoca podano ilooo ronych ziaren w rownych odstopach.
-         * @param distance dystans miodzy koleinymi ziarnami
+	/**Funkcja generujoca podana ilosc roznych ziaren w rownych odstepach.
+         * @param distance dystans miedzy kolejnymi ziarnami
          */
         public void generateWithEqualDistance(int distance) {
                 Random rand = new Random();
@@ -350,7 +350,7 @@ public class Automat {
         }
 
 	/**
-	 * Funkcja rysujoca ukoad powierzchni.
+	 * Funkcja rysujaca uklad powierzchni.
 	 * 
 	 * @param g
 	 *            obiekt graficzny na ktorym rysujemy

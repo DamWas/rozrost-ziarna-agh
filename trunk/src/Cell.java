@@ -9,7 +9,7 @@ import java.util.Random;
  * @since 2013-05-24
  */
 public class Cell {
-	/** Liczba dyslokacji w komïzorce */
+	/** Liczba dyslokacji w komorce */
 	public double dislocation;
 	/** Polozenie komorki */
 	int x, y;
@@ -30,7 +30,7 @@ public class Cell {
 	}
 
 	/**
-	 * Funkcja dodajaca dyslokacja do komarki
+	 * Funkcja dodajaca dyslokacje do komorki
 	 * 
 	 * @param pDislocation
 	 *            dyslokacja do dodania
