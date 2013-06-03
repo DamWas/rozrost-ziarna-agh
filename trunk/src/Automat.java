@@ -198,6 +198,20 @@ public class Automat {
 		}
 	}
 
+	/**Funkcja generuj¹ca podan¹ iloœæ ró¿nych ziaren w równych odstêpach.
+         * @param distance dystans miêdzy koleinymi ziarnami
+         */
+        public void generateWithEqualDistance(int distance) {
+                Random rand = new Random();
+                for (int x = 0; x < size; x += distance)
+                        for (int y = 0; y < size; y += distance) {
+                                GameWindow.colorCounter++;
+                                GameWindow.colors.add(new Color(rand.nextInt(255), rand
+                                                .nextInt(255), rand.nextInt(255)));
+                                setState(GameWindow.colorCounter, x, y);
+                        }
+        }
+
 	/**
 	 * Funkcja rysuj¹ca uk³ad powierzchni.
 	 * 
