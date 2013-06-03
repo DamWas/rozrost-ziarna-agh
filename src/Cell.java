@@ -7,12 +7,31 @@ import java.util.Random;
 	 * @since 2013-05-24
 	 */
 public class Cell {
-
+ 	/**Liczba dyslokacji w komórce.*/
+        double disloacation;
+        /**Po³o¿enie komórki.*/
+        int x, y;
+        /**Zmienna mówi¹ca czy komórka zrekrystalizowa³a*/
+        boolean recrystallized;
+	
 	public Cell(int i, int j) {
 		// TODO Auto-generated constructor stub
 	}
 
-   /**Funkcja dodaj¹ca dyslokacjê do komórki
+		
+ 	/**
+	* konstruktor 
+	* @pX polozenie X
+	* @pY polozenie Y
+	*/
+        public Cell(int pX, int pY) {
+                disloacation = 0;
+                x = pX;
+                y = pY;
+                recrystallized = false;
+        }
+
+  	 /**Funkcja dodaj¹ca dyslokacjê do komórki
          * @param pDislocation dyslokacja do dodania
          */
         public void addDislocation(double pDislocation) {
