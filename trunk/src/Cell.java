@@ -7,8 +7,8 @@ import java.util.Random;
 	 * @since 2013-05-24
 	 */
 public class Cell {
- 	/**Liczba dyslokacji w kom�rce.*/
-        double disloacation;
+	/**Liczba dyslokacji w kom�rce.*/
+        public double dislocation;
         /**Po�o�enie kom�rki.*/
         int x, y;
         /**Zmienna m�wi�ca czy kom�rka zrekrystalizowa�a*/
@@ -21,7 +21,7 @@ public class Cell {
 	* @pY polozenie Y
 	*/
         public Cell(int pX, int pY) {
-                disloacation = 0;
+                dislocation = 0;
                 x = pX;
                 y = pY;
                 recrystallized = false;
@@ -37,7 +37,7 @@ public class Cell {
                         toAdd = pDislocation * (rand.nextInt(110) + 70)/100;
                 else
                         toAdd = pDislocation * rand.nextInt(30)/100;
-                disloacation += toAdd;
+                dislocation += toAdd;
                 Recrystallization.dislocation -= toAdd;
         }
  
