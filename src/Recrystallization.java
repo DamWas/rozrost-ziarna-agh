@@ -1,6 +1,14 @@
 import java.awt.Color;
 import java.util.Random;
  
+/**
+ * Klasa odpowiedzialna za rekrystalizacje i zazadzajaca nia.
+ * 
+ * @author Mateusz Kaflowski, Marcin Goadosz, Krystian Bersztolc, Witold
+ *         Gramatyka, Michao Grabarczyk
+ * @version 1.0
+ * @since 2013-05-30
+ */
 public class Recrystallization {
  
         /**Aktualny czas*/
@@ -11,13 +19,13 @@ public class Recrystallization {
         static final double delaTime = 0.001f;
         /**Dyslokacja w danym czasie*/
         static double dislocation = 0;
-        /**Dyslokacja do dodania dla jednej komórki*/
+        /**Dyslokacja do dodania dla jednej komorki*/
         static double deltaDis = 0;
         /**Wartoœæ krytyczna dyslokacji*/
         static double disMax = 421584014.2f;
  
  
-        /**Funkcja licz¹ca dyslokacjê w danym momencie*/
+        /**Funkcja liczaca dyslokacjê w danym momencie*/
         public static void calcDislocation() {
                 double tmp1 = (A / B)
                                 + (1 - (A / B) * Math.pow(Math.E, (-B * (time - 0.001f))));
@@ -31,7 +39,7 @@ public class Recrystallization {
                 time += delaTime;
         }
  
-        /**Funkcja dodaj¹ca dyslokacje do wszystkich komórek*/
+        /**Funkcja dodajaca dyslokacje do wszystkich komorek*/
         public static void putDislocation() {
                 for (int i = 0; i < GameWindow.automat.size; i++)
                         for (int j = 0; j < GameWindow.automat.size; j++) {
@@ -48,7 +56,7 @@ public class Recrystallization {
                 }
         }
  
-        /**Sprawdzanie czy komórka zrekrystalizowa³a i rozrost zrekrystalizowanych ziarem*/
+        /**Sprawdzanie czy komorka zrekrystalizowa³a i rozrost zrekrystalizowanych ziarem*/
         public static void updateState() {
                 GameWindow.automat.genNextR();
                 for (int i = 0; i < GameWindow.automat.size; i++)

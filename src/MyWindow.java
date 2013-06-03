@@ -21,13 +21,13 @@ public class MyWindow extends JFrame {
 	public static Thread threadMonteCarlo;
 	private JTextField textField;
 	public static JTextField tfSpace;
-	public static JTextField tfRadius;
 	public static JTextField tfRandomNumber;
 	public static GameWindow gw;
 	static JButton btnReclystallization;
 	public static JTextField tfReclRadius;
 	static JButton btnMonteCarlo;
 	static JTextField tfMC;
+	private JLabel lblSpace;
 
 	/**
 	 * Launch the application.
@@ -97,16 +97,7 @@ public class MyWindow extends JFrame {
 		comboBox.setSelectedIndex(0);
 		contentPane.add(comboBox);
 		
-		comboBox.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if(comboBox.getSelectedIndex() == 11)
-					tfRadius.setEnabled(true);
-				else
-					tfRadius.setEnabled(false);
-			}
-		});
+	
 		
 		JButton btnClear = new JButton("Clear");
 		btnClear.addActionListener(new ActionListener() {
@@ -122,6 +113,7 @@ public class MyWindow extends JFrame {
 				for (int i = 0; i < gw.automat.size; i++)
 					for (int j = 0; j < gw.automat.size; j++)
 						gw.automat.cells[i][j] = new Cell(i, j);
+				gw.repaint();
 			}
 		});
 		btnClear.setBounds(92, 91, 89, 23);
@@ -159,29 +151,19 @@ public class MyWindow extends JFrame {
 		JButton btnGenerateWithEqual = new JButton("Generate with equal distance");
 		btnGenerateWithEqual.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-//				gw.automat.generateWithEqualDistance(Integer.parseInt(MyWindow.tfSpace
-//						.getText())); - BRY MA DOROBIC
+				gw.automat.generateWithEqualDistance(Integer.parseInt(MyWindow.tfSpace
+						.getText()));
 				gw.repaint();
 			}
 		});
-		btnGenerateWithEqual.setBounds(17, 297, 223, 23);
+		btnGenerateWithEqual.setBounds(17, 318, 223, 23);
 		contentPane.add(btnGenerateWithEqual);
 		
 		tfSpace = new JTextField();
 		tfSpace.setText("5");
 		tfSpace.setColumns(10);
-		tfSpace.setBounds(250, 298, 29, 20);
+		tfSpace.setBounds(250, 319, 29, 20);
 		contentPane.add(tfSpace);
-		
-		tfRadius = new JTextField();
-		tfRadius.setText("5");
-		tfRadius.setColumns(10);
-		tfRadius.setBounds(119, 345, 86, 20);
-		contentPane.add(tfRadius);
-		
-		JLabel lblRadius = new JLabel("Radius:");
-		lblRadius.setBounds(39, 348, 65, 14);
-		contentPane.add(lblRadius);
 		
 		JButton btnGenerateRandom = new JButton("Generate random");
 		btnGenerateRandom.addActionListener(new ActionListener() {
@@ -198,8 +180,6 @@ public class MyWindow extends JFrame {
 		tfRandomNumber.setColumns(10);
 		tfRandomNumber.setBounds(250, 408, 29, 20);
 		contentPane.add(tfRandomNumber);
-		
-		tfRadius.setEnabled(false);
 		
 		btnReclystallization = new JButton("Reclystallization");
 		btnReclystallization.addActionListener(new ActionListener() {
@@ -224,7 +204,7 @@ public class MyWindow extends JFrame {
 				}
 			}
 		});
-		btnReclystallization.setBounds(55, 453, 150, 23);
+		btnReclystallization.setBounds(17, 453, 150, 23);
 		contentPane.add(btnReclystallization);
 		
 		tfReclRadius = new JTextField();
@@ -269,6 +249,10 @@ public class MyWindow extends JFrame {
 		tfMC.setColumns(10);
 		tfMC.setBounds(250, 508, 29, 20);
 		contentPane.add(tfMC);
+		
+		lblSpace = new JLabel("Space:");
+		lblSpace.setBounds(177, 457, 65, 14);
+		contentPane.add(lblSpace);
 	}
 }
 

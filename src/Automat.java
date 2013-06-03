@@ -3,10 +3,10 @@ import java.awt.Graphics;
 import java.util.Random;
 
 /**
- * Klasa definuj�ca najwa�niejsze elementy automtu kom�rkowego.
+ * Klasa definujoca najwaoniejsze elementy automtu komorkowego.
  * 
- * @author Mateusz Kaflowski, Marcin G�adosz, Krystian Bersztolc, Witold
- *         Gramatyka, Micha� Grabarczyk
+ * @author Mateusz Kaflowski, Marcin Goadosz, Krystian Bersztolc, Witold
+ *         Gramatyka, Michao Grabarczyk
  * @version 1.0
  * @since 2013-05-24
  */
@@ -17,21 +17,21 @@ public class Automat {
 	/** Rozmiar obszaru rozrostu. */
 	public static int size;
 	/**
-	 * Tablica posiadaj�ca informacje o rodzaju ziarna w poszczeg�lnych
+	 * Tablica posiadajaca informacje o rodzaju ziarna w poszczegolnych
 	 * miejscach obszaru. 0 dla braku ziarna.
 	 */
 	public static int tab[][];
 	/**
-	 * Tablica posiadaj�ca informacje o rodzaju ziarna zrekrystalizowanego w
-	 * poszczeg�lnych miejscach obszaru. 0 dla braku ziarna.
+	 * Tablica posiadajaca informacje o rodzaju ziarna zrekrystalizowanego w
+	 * poszczegolnych miejscach obszaru. 0 dla braku ziarna.
 	 */
 	public int tabR[][];
 	/**
-	 * Tablica posiadaj�ca informacje ziarnach w poszczeg�lnych miejscach
+	 * Tablica posiadajoca informacje ziarnach w poszczegolnych miejscach
 	 * obszaru.
 	 */
 	public Cell cells[][];
-	/** Zmienna okre�laj�ca periodyczno��. */
+	/** Zmienna okreslajaca periodycznosc. */
 	public static boolean isPeriodic = false;
 
 	// KONSTRUKTORY:----------------
@@ -54,7 +54,7 @@ public class Automat {
 
 	}
 
-	/** Funkcja generuj�ca nast�pny cykl �ycia. */
+	/** Funkcja generujoca nastopny cykl oycia. */
 	public void genNext() {
 		
 		int tmp[][] = new int[size][size];
@@ -67,6 +67,11 @@ public class Automat {
 	
 	
 
+	/**Funkcja pomocnicza stosujaca wybrane sasiedztwo.
+	 * @param tmp przestrzen wynikowa
+	 * @param x polozenie poziome
+	 * @param y polozenie pionowe
+	 */
 	public static void switchNext(int[][] tmp, int x, int y) {
 		
 		int selected = MyWindow.comboBox.getSelectedIndex();
@@ -155,7 +160,7 @@ public class Automat {
 
 
 
-	/** Funkcja generuj�ca nast�pny cykl �ycia dla rekrystalizacji. */
+	/** Funkcja generujaca nastepny cykl zycia dla rekrystalizacji. */
 	public void genNextR() {
                 int tmp[][] = new int[size][size];
  
@@ -253,7 +258,7 @@ public class Automat {
  
                 tabR = tmp;
         }
-	/** Funkcja czyszczaca obszar */
+	/** Funkcja czyszczaca obszar. */
 	public void clear() {
 		for (int i = 0; i < size; i++)
 			for (int j = 0; j < size; j++)
@@ -261,22 +266,22 @@ public class Automat {
 	}
 
 	/**
-	 * Funkcja ustawiajaca ziarna w podanym obszarze
+	 * Funkcja ustawiajaca ziarna w podanym obszarze.
 	 * 
 	 * @param color
 	 *            rodzaj ziarna
 	 * @param x
-	 *            wsp�lrzedna pozioma
+	 *            wspolrzedna pozioma
 	 * @param y
-	 *            wsp�lrzedna pionowa
+	 *            wspolrzedna pionowa
 	 */
 	public void setState(int color, int x, int y) {
 		tab[x][y] = color;
 	}
 
 	/**
-	 * Funkcja generuj�ca podan� ilo�� r�nych ziaren w losowych miejscach
-	 * obszaru
+	 * Funkcja generujoca podano ilosc ronych ziaren w losowych miejscach
+	 * obszaru.
 	 * 
 	 * @param number
 	 *            liczba ziaren do wygenerowania
@@ -287,7 +292,7 @@ public class Automat {
 		tmpx = rand.nextInt(size);
 		tmpy = rand.nextInt(size);
 		for (int i = 0; i < number; i++) {
-			// ograniczenie liczby pr�b losowania �eby program si� nie zawiesi�
+			// ograniczenie liczby prob losowania oeby program sio nie zawiesio
 			// przy braku wolnych miejsc
 			int trials = 0;
 			while (tab[tmpx][tmpy] != 0 && trials < 100) {
@@ -304,8 +309,8 @@ public class Automat {
 		}
 	}
 
-	/**Funkcja generuj�ca podan� ilo�� r�nych ziaren w r�wnych odst�pach.
-         * @param distance dystans mi�dzy koleinymi ziarnami
+	/**Funkcja generujoca podano ilooo ronych ziaren w rownych odstopach.
+         * @param distance dystans miodzy koleinymi ziarnami
          */
         public void generateWithEqualDistance(int distance) {
                 Random rand = new Random();
@@ -319,10 +324,10 @@ public class Automat {
         }
 
 	/**
-	 * Funkcja rysuj�ca uk�ad powierzchni.
+	 * Funkcja rysujoca ukoad powierzchni.
 	 * 
 	 * @param g
-	 *            obiekt graficzny na kt�rym rysujemy
+	 *            obiekt graficzny na ktorym rysujemy
 	 */
 	public void printTab(Graphics g) {
 		g.setColor(Color.BLACK);
