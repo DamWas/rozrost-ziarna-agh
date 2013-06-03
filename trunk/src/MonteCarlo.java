@@ -4,10 +4,10 @@ import java.util.Random;
  
 /**Klasa do obliczeñ Monte Carlo.
 Usprawnienia:
-- losowanie jedynie spoœród s¹siadów,
-- wiêksze prawdopodobieñstwo wylosowania elementu, który czêœciej wystêpuje.
+- losowanie jedynie spoœrod sasiadow,
+- wiêksze prawdopodobieñstwo wylosowania elementu, ktory czêœciej wystêpuje.
  * @author Marcin G³adosz, Mateusz Kaflowski, Krystian Bersztolc, Witold
- *         Gramatyka, Micha³ Grabarczyk
+ *         Gramatyka, Michal Grabarczyk
  * @version 1.0
  * @since 2013-06-02
  */
@@ -16,16 +16,16 @@ Usprawnienia:
  
 public class MonteCarlo {
        
-        /**Automat na którym operujemy*/
+        /**Automat na ktorym operujemy*/
         Automat automat;
-        /**Zmienne dla ka¿dej komórki mówi¹ce czy zosta³a ona wylosowana*/
+        /**Zmienne dla kazdej komorki mowiace czy zosta³a ona wylosowana*/
         boolean wasDrawn[][];
        
         public MonteCarlo(Automat automat) {
                 this.automat = automat;
         }
        
-        /**Funkcja wykonuj¹ca pojedynczy przbieg Monte Carlo - wylosowanie wszystkich komórek*/
+        /**Funkcja wykonujaca pojedynczy przbieg Monte Carlo - wylosowanie wszystkich komorek*/
         public void oneStep(){
                 wasDrawn = new boolean[automat.size][automat.size];
                 for (int i = 0; i < automat.size; i++)
@@ -53,10 +53,10 @@ public class MonteCarlo {
                 }
         }
  
-        /**Funkcja licz¹ca energie w podanej komórce.
-         * @param id ID ziarna dla którego liczymy energiê
-         * @param neibs kolekcja s¹siadów ziarna
-         * @return energia ziarna - liczba innych s¹siadów
+        /**Funkcja liczaca energie w podanej komorce.
+         * @param id ID ziarna dla ktorego liczymy energiê
+         * @param neibs kolekcja sasiadow ziarna
+         * @return energia ziarna - liczba innych sasiadow
          */
         private int calcEnergy(int id, List<Integer> neibs) {
                 int energy = 0;
@@ -67,10 +67,10 @@ public class MonteCarlo {
                 return energy;
         }
  
-        /**Funkcja ³aduj¹ca s¹siadów podanego ziarna do kolekcji.
-         * @param x po³o¿enie poziome ziarna
-         * @param y po³o¿enie pionowe ziarna
-         * @param neibs kolekcja do której zapisane s¹ ID s¹siadów
+        /**Funkcja ³adujaca sasiadow podanego ziarna do kolekcji.
+         * @param x po³ozenie poziome ziarna
+         * @param y po³ozenie pionowe ziarna
+         * @param neibs kolekcja do ktorej zapisane sa ID sasiadow
          */
         private void getNeibs(int x, int y, List<Integer> neibs) {
                 for (int i = -1; i <= 1; i++)
@@ -85,8 +85,8 @@ public class MonteCarlo {
  
         }
  
-        /**Funkcja sprawdzaj¹ca czy wszystkie ziarna z przestrzeni zosta³y wylosowane
-         * @return true - wszystkie komórki wylosowanie, w przeciwnym wypadku false
+        /**Funkcja sprawdzajaca czy wszystkie ziarna z przestrzeni zosta³y wylosowane
+         * @return true - wszystkie komorki wylosowanie, w przeciwnym wypadku false
          */
         private boolean checkIfAllDrawn() {
                 for (int i = 0; i < automat.size; i++)

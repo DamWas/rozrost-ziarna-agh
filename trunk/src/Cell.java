@@ -1,62 +1,64 @@
 import java.util.Random;
 
-/**Klasa reprezentujï¿½ca ziarno/komï¿½rkï¿½
-	 * @author Mateusz Kaflowski, Marcin Gï¿½adosz, Krystian Bersztolc, Witold
-	 *         Gramatyka, Michaï¿½ Grabarczyk
-	 * @version 1.0
-	 * @since 2013-05-24
-	 */
+/**
+ * Klasa reprezentujaca ziarno/komorke.½
+ * 
+ * @author Mateusz Kaflowski, Marcin Gïladosz, Krystian Bersztolc, Witold
+ *         Gramatyka, Michaa Grabarczyk
+ * @version 1.0
+ * @since 2013-05-24
+ */
 public class Cell {
-	/**Liczba dyslokacji w komï¿½rce.*/
-        public double dislocation;
-        /**Poï¿½oï¿½enie komï¿½rki.*/
-        int x, y;
-        /**Zmienna mï¿½wiï¿½ca czy komï¿½rka zrekrystalizowaï¿½a*/
-        boolean recrystallized;
-	
-		
- 	/**
-	* konstruktor 
-	* @pX polozenie X
-	* @pY polozenie Y
-	*/
-        public Cell(int pX, int pY) {
-                dislocation = 0;
-                x = pX;
-                y = pY;
-                recrystallized = false;
-        }
+	/** Liczba dyslokacji w komïzorce */
+	public double dislocation;
+	/** Polozenie komorki */
+	int x, y;
+	/** Zmienna mowiaca czy komorka zrekrystalizowala */
+	boolean recrystallized;
 
-  	 /**Funkcja dodajï¿½ca dyslokacjï¿½ do komï¿½rki
-         * @param pDislocation dyslokacja do dodania
-         */
-        public void addDislocation(double pDislocation) {
-                Random rand = new Random();
-                double toAdd = 0;
-                if (isOnBorder())
-                        toAdd = pDislocation * (rand.nextInt(110) + 70)/100;
-                else
-                        toAdd = pDislocation * rand.nextInt(30)/100;
-                dislocation += toAdd;
-                Recrystallization.dislocation -= toAdd;
-        }
- 
-        /**Funkcja sparwdzajï¿½ca czy ziarno leï¿½y na granicy*/
-        public boolean isOnBorder() {
-                for (int i = -1; i <= 1; i++)
-                        for (int j = -1; j <= 1; j++) {
-                                if (x + i < 0 || x + i >= GameWindow.automat.size || y + j < 0
-                                                || y + j >= GameWindow.automat.size)
-                                        continue;
-                                if (GameWindow.automat.tab[x][y] != GameWindow.automat.tab[x + i][y + j])
-                                        return true;
- 
-                        }
-                return false;
-        }
+	/**
+	 * konstruktor
+	 * 
+	 * @pX polozenie X
+	 * @pY polozenie Y
+	 */
+	public Cell(int pX, int pY) {
+		dislocation = 0;
+		x = pX;
+		y = pY;
+		recrystallized = false;
+	}
 
+	/**
+	 * Funkcja dodajaca dyslokacja do komarki
+	 * 
+	 * @param pDislocation
+	 *            dyslokacja do dodania
+	 */
+	public void addDislocation(double pDislocation) {
+		Random rand = new Random();
+		double toAdd = 0;
+		if (isOnBorder())
+			toAdd = pDislocation * (rand.nextInt(110) + 70) / 100;
+		else
+			toAdd = pDislocation * rand.nextInt(30) / 100;
+		dislocation += toAdd;
+		Recrystallization.dislocation -= toAdd;
+	}
 
+	/** Funkcja sparwdzajaca czy ziarno lezy na granicy */
+	public boolean isOnBorder() {
+		for (int i = -1; i <= 1; i++)
+			for (int j = -1; j <= 1; j++) {
+				if (x + i < 0 || x + i >= GameWindow.automat.size || y + j < 0
+						|| y + j >= GameWindow.automat.size)
+					continue;
+				if (GameWindow.automat.tab[x][y] != GameWindow.automat.tab[x
+						+ i][y + j])
+					return true;
 
-
+			}
+		return false;
+	}
 
 }

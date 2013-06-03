@@ -1,4 +1,4 @@
-﻿import java.util.Collections;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -18,8 +18,8 @@ public class Rules {
 	 * Funkcja zwraca najczescie wystepujacy element z kolekcji.
 	 * 
 	 * @param colors
-	 *            Kolekcja do przeszukania
-	 * @return Najczesciej wystepujacy element
+	 *            kolekcja do przeszukania
+	 * @return najczesciej wystepujacy element
 	 */
 	private static int getTheMostPopular(List<Integer> colors) {
 		Collections.sort(colors);
@@ -64,26 +64,26 @@ public class Rules {
 	}
 
 	/**
-	 * Funkcja zwracajaca sasieada najczesciej wystepujacego w sasiedztwie
+	 * Funkcja zwracajaca sasiada najczesciej wystepujacego w sasiedztwie
 	 * Moor'a.
 	 * 
 	 * @param x
-	 *            pozioma wsp�lrzedna badanego ziarna
+	 *            pozioma wspolrzedna badanego ziarna
 	 * @param y
-	 *            pionowa wsp�lrzedna badanego ziarna
+	 *            pionowa wspolrzedna badanego ziarna
 	 * @param tab
 	 *            obszar w jakim znajduje sie ziarno
 	 * @param size
 	 *            rozmiar obszaru
 	 * @return ID ziarna najczesciej wystepujacego w sasiedztwie. 0 dla braku
-	 *         sasiad�w
+	 *         sasiadow
 	 */
 	public static int calcMoore(int x, int y, int tab[][], int size) {
 
 		List<Integer> colors = new LinkedList<Integer>();
 		int predominant = 0;
 
-		// g�ra:-------------------
+		// gora:-------------------
 		if (y == 0) {
 
 		} else {
@@ -98,7 +98,7 @@ public class Rules {
 				colors.add(tab[x + 1][y - 1]);
 		}
 
-		// d�l:------------------
+		// dol:------------------
 		if (y == size - 1) {
 
 		} else {
@@ -134,26 +134,26 @@ public class Rules {
 
 	// updated by Krystian B. 28.05.2013
 	/**
-	 * Funkcja zwracająca sasieada najczęściej występującego w sąsiedztwie
-	 * heksagonalnym lewym z periodycznością.
+	 * Funkcja zwracajaca sasiada najczesciej wystepujacego w sasiedztwie
+	 * heksagonalnym lewym z periodycznoscia.
 	 * 
 	 * @param x
-	 *            pozioma współrzędna badanego ziarna
+	 *            pozioma wspo�rzedna badanego ziarna
 	 * @param y
-	 *            pionowa współrzędna badanego ziarna
+	 *            pionowa wspo�rzedna badanego ziarna
 	 * @param tab
-	 *            obszar w jakim znajduje się ziarno
+	 *            obszar w jakim znajduje sie ziarno
 	 * @param size
 	 *            rozmiar obszaru
-	 * @return ID ziarna najczęściej występującego w sąsiedztwie. 0 dla braku
-	 *         sąsiadów
+	 * @return ID ziarna najczesciej wystepujacego w sasiedztwie. 0 dla braku
+	 *         sasiadow
 	 */
 	public static int calcHexLP(int x, int y, int tab[][], int size) {
 
 		List<Integer> colors = new LinkedList<Integer>();
 		int predominant = 0;
 
-		// góra:-------------------
+		// gora:-------------------
 		if (y == 0) {
 			if (x == 0)
 				colors.add(tab[size - 1][size - 1]);
@@ -170,7 +170,7 @@ public class Rules {
 
 		}
 
-		// dół:------------------
+		// do�:------------------
 		if (y == size - 1) {
 
 			colors.add(tab[x][0]);
@@ -207,26 +207,26 @@ public class Rules {
 	}
 
 	/**
-	 * Funkcja zwracająca sasieada najczęściej występującego w sąsiedztwie
+	 * Funkcja zwracajaca sasiada najczesciej wystepujacego w sasiedztwie
 	 * heksagonalnym lewym.
 	 * 
 	 * @param x
-	 *            pozioma współrzędna badanego ziarna
+	 *            pozioma wspo�rzedna badanego ziarna
 	 * @param y
-	 *            pionowa współrzędna badanego ziarna
+	 *            pionowa wspo�rzedna badanego ziarna
 	 * @param tab
-	 *            obszar w jakim znajduje się ziarno
+	 *            obszar w jakim znajduje sie ziarno
 	 * @param size
 	 *            rozmiar obszaru
-	 * @return ID ziarna najczęściej występującego w sąsiedztwie. 0 dla braku
-	 *         sąsiadów
+	 * @return ID ziarna najczesciej wystepujacego w sasiedztwie. 0 dla braku
+	 *         sasiadow
 	 */
 	public static int calcHexL(int x, int y, int tab[][], int size) {
 
 		List<Integer> colors = new LinkedList<Integer>();
 		int predominant = 0;
 
-		// góra:-------------------
+		// gora:-------------------
 		if (y == 0) {
 
 		} else {
@@ -238,7 +238,7 @@ public class Rules {
 
 		}
 
-		// dół:------------------
+		// do�:------------------
 		if (y == size - 1) {
 
 		} else {
@@ -270,26 +270,26 @@ public class Rules {
 	}
 
 	/**
-	 * Funkcja zwracająca sasieada najczęściej występującego w sąsiedztwie
-	 * heksagonalnym prawym z periodycznością.
+	 * Funkcja zwracajaca sasiada najczesciej wystepujacego w sasiedztwie
+	 * heksagonalnym prawym z periodycznoscia.
 	 * 
 	 * @param x
-	 *            pozioma współrzędna badanego ziarna
+	 *            pozioma wspo�rzedna badanego ziarna
 	 * @param y
-	 *            pionowa współrzędna badanego ziarna
+	 *            pionowa wspo�rzedna badanego ziarna
 	 * @param tab
-	 *            obszar w jakim znajduje się ziarno
+	 *            obszar w jakim znajduje sie ziarno
 	 * @param size
 	 *            rozmiar obszaru
-	 * @return ID ziarna najczęściej występującego w sąsiedztwie. 0 dla braku
-	 *         sąsiadów
+	 * @return ID ziarna najczesciej wystepujacego w sasiedztwie. 0 dla braku
+	 *         sasiadow
 	 */
 	public static int calcHexRP(int x, int y, int tab[][], int size) {
 
 		List<Integer> colors = new LinkedList<Integer>();
 		int predominant = 0;
 
-		// góra:-------------------
+		// gora:-------------------
 		if (y == 0) {
 
 			colors.add(tab[x][size - 1]);
@@ -306,7 +306,7 @@ public class Rules {
 				colors.add(tab[x + 1][y - 1]);
 		}
 
-		// dół:------------------
+		// do�:------------------
 		if (y == size - 1) {
 			if (x == 0)
 				colors.add(tab[size - 1][0]);
@@ -343,26 +343,26 @@ public class Rules {
 	}
 
 	/**
-	 * Funkcja zwracająca sasieada najczęściej występującego w sąsiedztwie
+	 * Funkcja zwracajaca sasiada najczesciej wystepujacego w sasiedztwie
 	 * heksagonalnym prawym.
 	 * 
 	 * @param x
-	 *            pozioma współrzędna badanego ziarna
+	 *            pozioma wspo�rzedna badanego ziarna
 	 * @param y
-	 *            pionowa współrzędna badanego ziarna
+	 *            pionowa wspo�rzedna badanego ziarna
 	 * @param tab
-	 *            obszar w jakim znajduje się ziarno
+	 *            obszar w jakim znajduje sie ziarno
 	 * @param size
 	 *            rozmiar obszaru
-	 * @return ID ziarna najczęściej występującego w sąsiedztwie. 0 dla braku
-	 *         sąsiadów
+	 * @return ID ziarna najczesciej wystepujacego w sasiedztwie. 0 dla braku
+	 *         sasiadow
 	 */
 	public static int calcHexR(int x, int y, int tab[][], int size) {
 
 		List<Integer> colors = new LinkedList<Integer>();
 		int predominant = 0;
 
-		// góra:-------------------
+		// gora:-------------------
 		if (y == 0) {
 
 		} else {
@@ -374,7 +374,7 @@ public class Rules {
 				colors.add(tab[x + 1][y - 1]);
 		}
 
-		// dół:------------------
+		// do�:------------------
 		if (y == size - 1) {
 
 		} else {
@@ -406,26 +406,26 @@ public class Rules {
 	}
 
 	/**
-	 * Funkcja zwracająca sasieada najczęściej występującego w sąsiedztwie
-	 * pentagonalnym lewym z periodycznością.
+	 * Funkcja zwracajaca sasiada najczesciej wystepujacego w sasiedztwie
+	 * pentagonalnym lewym z periodycznoscia.
 	 * 
 	 * @param x
-	 *            pozioma współrzędna badanego ziarna
+	 *            pozioma wspo�rzedna badanego ziarna
 	 * @param y
-	 *            pionowa współrzędna badanego ziarna
+	 *            pionowa wspo�rzedna badanego ziarna
 	 * @param tab
-	 *            obszar w jakim znajduje się ziarno
+	 *            obszar w jakim znajduje sie ziarno
 	 * @param size
 	 *            rozmiar obszaru
-	 * @return ID ziarna najczęściej występującego w sąsiedztwie. 0 dla braku
-	 *         sąsiadów
+	 * @return ID ziarna najczesciej wystepujacego w sasiedztwie. 0 dla braku
+	 *         sasiadow
 	 */
 	public static int calcPentaLP(int x, int y, int tab[][], int size) {
 
 		List<Integer> colors = new LinkedList<Integer>();
 		int predominant = 0;
 
-		// góra:-------------------
+		// gora:-------------------
 		if (y == 0) {
 			if (x == 0)
 				colors.add(tab[size - 1][size - 1]);
@@ -442,7 +442,7 @@ public class Rules {
 
 		}
 
-		// dół:------------------
+		// do�:------------------
 		if (y == size - 1) {
 			if (x == 0)
 				colors.add(tab[size - 1][0]);
@@ -472,26 +472,26 @@ public class Rules {
 	}
 
 	/**
-	 * Funkcja zwracająca sasieada najczęściej występującego w sąsiedztwie
+	 * Funkcja zwracajaca sasiada najczesciej wystepujacego w sasiedztwie
 	 * pentagonalnym lewym.
 	 * 
 	 * @param x
-	 *            pozioma współrzędna badanego ziarna
+	 *            pozioma wspo�rzedna badanego ziarna
 	 * @param y
-	 *            pionowa współrzędna badanego ziarna
+	 *            pionowa wspo�rzedna badanego ziarna
 	 * @param tab
-	 *            obszar w jakim znajduje się ziarno
+	 *            obszar w jakim znajduje sie ziarno
 	 * @param size
 	 *            rozmiar obszaru
-	 * @return ID ziarna najczęściej występującego w sąsiedztwie. 0 dla braku
-	 *         sąsiadów
+	 * @return ID ziarna najczesciej wystepujacego w sasiedztwie. 0 dla braku
+	 *         sasiadow
 	 */
 	public static int calcPentaL(int x, int y, int tab[][], int size) {
 
 		List<Integer> colors = new LinkedList<Integer>();
 		int predominant = 0;
 
-		// góra:-------------------
+		// gora:-------------------
 		if (y == 0) {
 
 		} else {
@@ -503,7 +503,7 @@ public class Rules {
 
 		}
 
-		// dół:------------------
+		// do�:------------------
 		if (y == size - 1) {
 
 		} else {
@@ -528,26 +528,26 @@ public class Rules {
 	}
 
 	/**
-	 * Funkcja zwracająca sasieada najczęściej występującego w sąsiedztwie
-	 * pentagonalnym prawym z periodycznością.
+	 * Funkcja zwracajaca sasiada najczesciej wystepujacego w sasiedztwie
+	 * pentagonalnym prawym z periodycznoscia.
 	 * 
 	 * @param x
-	 *            pozioma współrzędna badanego ziarna
+	 *            pozioma wspo�rzedna badanego ziarna
 	 * @param y
-	 *            pionowa współrzędna badanego ziarna
+	 *            pionowa wspo�rzedna badanego ziarna
 	 * @param tab
-	 *            obszar w jakim znajduje się ziarno
+	 *            obszar w jakim znajduje sie ziarno
 	 * @param size
 	 *            rozmiar obszaru
-	 * @return ID ziarna najczęściej występującego w sąsiedztwie. 0 dla braku
-	 *         sąsiadów
+	 * @return ID ziarna najczesciej wystepujacego w sasiedztwie. 0 dla braku
+	 *         sasiadow
 	 */
 	public static int calcPentaRP(int x, int y, int tab[][], int size) {
 
 		List<Integer> colors = new LinkedList<Integer>();
 		int predominant = 0;
 
-		// góra:-------------------
+		// gora:-------------------
 		if (y == 0) {
 
 			colors.add(tab[x][size - 1]);
@@ -564,7 +564,7 @@ public class Rules {
 				colors.add(tab[x + 1][y - 1]);
 		}
 
-		// dół:------------------
+		// do�:------------------
 		if (y == size - 1) {
 
 			colors.add(tab[x][0]);
@@ -594,26 +594,26 @@ public class Rules {
 	}
 
 	/**
-	 * Funkcja zwracająca sasieada najczęściej występującego w sąsiedztwie
+	 * Funkcja zwracajaca sasiada najczesciej wystepujacego w sasiedztwie
 	 * pentagonalnym prawym.
 	 * 
 	 * @param x
-	 *            pozioma współrzędna badanego ziarna
+	 *            pozioma wspo�rzedna badanego ziarna
 	 * @param y
-	 *            pionowa współrzędna badanego ziarna
+	 *            pionowa wspo�rzedna badanego ziarna
 	 * @param tab
-	 *            obszar w jakim znajduje się ziarno
+	 *            obszar w jakim znajduje sie ziarno
 	 * @param size
 	 *            rozmiar obszaru
-	 * @return ID ziarna najczęściej występującego w sąsiedztwie. 0 dla braku
-	 *         sąsiadów
+	 * @return ID ziarna najczesciej wystepujacego w sasiedztwie. 0 dla braku
+	 *         sasiadow
 	 */
 	public static int calcPentaR(int x, int y, int tab[][], int size) {
 
 		List<Integer> colors = new LinkedList<Integer>();
 		int predominant = 0;
 
-		// góra:-------------------
+		// gora:-------------------
 		if (y == 0) {
 
 		} else {
@@ -625,7 +625,7 @@ public class Rules {
 				colors.add(tab[x + 1][y - 1]);
 		}
 
-		// dół:------------------
+		// do�:------------------
 		if (y == size - 1) {
 
 		} else {
@@ -650,26 +650,26 @@ public class Rules {
 	}
 
 	/**
-	 * Funkcja zwracająca sasieada najczęściej występującego w sąsiedztwie
-	 * pentagonalnym górnym z periodycznością.
+	 * Funkcja zwracajaca sasiada najczesciej wystepujacego w sasiedztwie
+	 * pentagonalnym gornym z periodycznoscia.
 	 * 
 	 * @param x
-	 *            pozioma współrzędna badanego ziarna
+	 *            pozioma wspo�rzedna badanego ziarna
 	 * @param y
-	 *            pionowa współrzędna badanego ziarna
+	 *            pionowa wspo�rzedna badanego ziarna
 	 * @param tab
-	 *            obszar w jakim znajduje się ziarno
+	 *            obszar w jakim znajduje sie ziarno
 	 * @param size
 	 *            rozmiar obszaru
-	 * @return ID ziarna najczęściej występującego w sąsiedztwie. 0 dla braku
-	 *         sąsiadów
+	 * @return ID ziarna najczesciej wystepujacego w sasiedztwie. 0 dla braku
+	 *         sasiadow
 	 */
 	public static int calcPentaUP(int x, int y, int tab[][], int size) {
 
 		List<Integer> colors = new LinkedList<Integer>();
 		int predominant = 0;
 
-		// góra:-------------------
+		// gora:-------------------
 		if (y == 0) {
 			if (x == 0)
 				colors.add(tab[size - 1][size - 1]);
@@ -712,26 +712,26 @@ public class Rules {
 	}
 
 	/**
-	 * Funkcja zwracająca sasieada najczęściej występującego w sąsiedztwie
-	 * pentagonalnym górnym.
+	 * Funkcja zwracajaca sasiada najczesciej wystepujacego w sasiedztwie
+	 * pentagonalnym gornym.
 	 * 
 	 * @param x
-	 *            pozioma współrzędna badanego ziarna
+	 *            pozioma wspo�rzedna badanego ziarna
 	 * @param y
-	 *            pionowa współrzędna badanego ziarna
+	 *            pionowa wspo�rzedna badanego ziarna
 	 * @param tab
-	 *            obszar w jakim znajduje się ziarno
+	 *            obszar w jakim znajduje sie ziarno
 	 * @param size
 	 *            rozmiar obszaru
-	 * @return ID ziarna najczęściej występującego w sąsiedztwie. 0 dla braku
-	 *         sąsiadów
+	 * @return ID ziarna najczesciej wystepujacego w sasiedztwie. 0 dla braku
+	 *         sasiadow
 	 */
 	public static int calcPentaU(int x, int y, int tab[][], int size) {
 
 		List<Integer> colors = new LinkedList<Integer>();
 		int predominant = 0;
 
-		// góra:-------------------
+		// gora:-------------------
 		if (y == 0) {
 
 		} else {
@@ -766,26 +766,26 @@ public class Rules {
 	}
 
 	/**
-	 * Funkcja zwracająca sasieada najczęściej występującego w sąsiedztwie
-	 * pentagonalnym dolnym z periodycznością.
+	 * Funkcja zwracajaca sasiada najczesciej wystepujacego w sasiedztwie
+	 * pentagonalnym dolnym z periodycznoscia.
 	 * 
 	 * @param x
-	 *            pozioma współrzędna badanego ziarna
+	 *            pozioma wspo�rzedna badanego ziarna
 	 * @param y
-	 *            pionowa współrzędna badanego ziarna
+	 *            pionowa wspo�rzedna badanego ziarna
 	 * @param tab
-	 *            obszar w jakim znajduje się ziarno
+	 *            obszar w jakim znajduje sie ziarno
 	 * @param size
 	 *            rozmiar obszaru
-	 * @return ID ziarna najczęściej występującego w sąsiedztwie. 0 dla braku
-	 *         sąsiadów
+	 * @return ID ziarna najczesciej wystepujacego w sasiedztwie. 0 dla braku
+	 *         sasiadow
 	 */
 	public static int calcPentaBP(int x, int y, int tab[][], int size) {
 
 		List<Integer> colors = new LinkedList<Integer>();
 		int predominant = 0;
 
-		// dół:------------------
+		// do�:------------------
 		if (y == size - 1) {
 			if (x == 0)
 				colors.add(tab[size - 1][0]);
@@ -828,26 +828,26 @@ public class Rules {
 	}
 
 	/**
-	 * Funkcja zwracająca sasieada najczęściej występującego w sąsiedztwie
+	 * Funkcja zwracajaca sasiada najczesciej wystepujacego w sasiedztwie
 	 * pentagonalnym dolnym.
 	 * 
 	 * @param x
-	 *            pozioma współrzędna badanego ziarna
+	 *            pozioma wspo�rzedna badanego ziarna
 	 * @param y
-	 *            pionowa współrzędna badanego ziarna
+	 *            pionowa wspo�rzedna badanego ziarna
 	 * @param tab
-	 *            obszar w jakim znajduje się ziarno
+	 *            obszar w jakim znajduje sie ziarno
 	 * @param size
 	 *            rozmiar obszaru
-	 * @return ID ziarna najczęściej występującego w sąsiedztwie. 0 dla braku
-	 *         sąsiadów
+	 * @return ID ziarna najczesciej wystepujacego w sasiedztwie. 0 dla braku
+	 *         sasiadow
 	 */
 	public static int calcPentaB(int x, int y, int tab[][], int size) {
 
 		List<Integer> colors = new LinkedList<Integer>();
 		int predominant = 0;
 
-		// dół:------------------
+		// do�:------------------
 		if (y == size - 1) {
 
 		} else {
@@ -882,19 +882,19 @@ public class Rules {
 	}
 
 	/**
-	 * Funkcja zwracająca sasieada najczęściej występującego w sąsiedztwie
+	 * Funkcja zwracajaca sasiada najczesciej wystepujacego w sasiedztwie
 	 * heksagonalnym losowym.
 	 * 
 	 * @param x
-	 *            pozioma współrzędna badanego ziarna
+	 *            pozioma wspo�rzedna badanego ziarna
 	 * @param y
-	 *            pionowa współrzędna badanego ziarna
+	 *            pionowa wspo�rzedna badanego ziarna
 	 * @param tab
-	 *            obszar w jakim znajduje się ziarno
+	 *            obszar w jakim znajduje sie ziarno
 	 * @param size
 	 *            rozmiar obszaru
-	 * @return ID ziarna najczęściej występującego w sąsiedztwie. 0 dla braku
-	 *         sąsiadów
+	 * @return ID ziarna najczesciej wystepujacego w sasiedztwie. 0 dla braku
+	 *         sasiadow
 	 */
 	public static int calcHexRandom(int x, int y, int tab[][], int size) {
 		Random rand = new Random();
@@ -911,19 +911,19 @@ public class Rules {
 	}
 
 	/**
-	 * Funkcja zwracająca sasieada najczęściej występującego w sąsiedztwie
-	 * heksagonalnym losowym z periodycznością.
+	 * Funkcja zwracajaca sasiada najczesciej wystepujacego w sasiedztwie
+	 * heksagonalnym losowym z periodycznoscia.
 	 * 
 	 * @param x
-	 *            pozioma współrzędna badanego ziarna
+	 *            pozioma wspo�rzedna badanego ziarna
 	 * @param y
-	 *            pionowa współrzędna badanego ziarna
+	 *            pionowa wspo�rzedna badanego ziarna
 	 * @param tab
-	 *            obszar w jakim znajduje się ziarno
+	 *            obszar w jakim znajduje sie ziarno
 	 * @param size
 	 *            rozmiar obszaru
-	 * @return ID ziarna najczęściej występującego w sąsiedztwie. 0 dla braku
-	 *         sąsiadów
+	 * @return ID ziarna najczesciej wystepujacego w sasiedztwie. 0 dla braku
+	 *         sasiadow
 	 */
 	public static int calcHexRandomP(int x, int y, int tab[][], int size) {
 		Random rand = new Random();
@@ -940,19 +940,19 @@ public class Rules {
 	}
 
 	/**
-	 * Funkcja zwracająca sasieada najczęściej występującego w sąsiedztwie
+	 * Funkcja zwracajaca sasiada najczesciej wystepujacego w sasiedztwie
 	 * pentagonalnym losowym.
 	 * 
 	 * @param x
-	 *            pozioma współrzędna badanego ziarna
+	 *            pozioma wspo�rzedna badanego ziarna
 	 * @param y
-	 *            pionowa współrzędna badanego ziarna
+	 *            pionowa wspo�rzedna badanego ziarna
 	 * @param tab
-	 *            obszar w jakim znajduje się ziarno
+	 *            obszar w jakim znajduje sie ziarno
 	 * @param size
 	 *            rozmiar obszaru
-	 * @return ID ziarna najczęściej występującego w sąsiedztwie. 0 dla braku
-	 *         sąsiadów
+	 * @return ID ziarna najczesciej wystepujacego w sasiedztwie. 0 dla braku
+	 *         sasiadow
 	 */
 	public static int calcPentaRandom(int x, int y, int tab[][], int size) {
 		Random rand = new Random();
@@ -973,19 +973,19 @@ public class Rules {
 	}
 
 	/**
-	 * Funkcja zwracająca sasieada najczęściej występującego w sąsiedztwie
-	 * pentagonalnym losowym z periodycznością.
+	 * Funkcja zwracajaca sasiada najczesciej wystepujacego w sasiedztwie
+	 * pentagonalnym losowym z periodycznoscia.
 	 * 
 	 * @param x
-	 *            pozioma współrzędna badanego ziarna
+	 *            pozioma wspo�rzedna badanego ziarna
 	 * @param y
-	 *            pionowa współrzędna badanego ziarna
+	 *            pionowa wspo�rzedna badanego ziarna
 	 * @param tab
-	 *            obszar w jakim znajduje się ziarno
+	 *            obszar w jakim znajduje sie ziarno
 	 * @param size
 	 *            rozmiar obszaru
-	 * @return ID ziarna najczęściej występującego w sąsiedztwie. 0 dla braku
-	 *         sąsiadów
+	 * @return ID ziarna najczesciej wystepujacego w sasiedztwie. 0 dla braku
+	 *         sasiadow
 	 */
 	public static int calcPentaRandomP(int x, int y, int tab[][], int size) {
 		Random rand = new Random();
@@ -1008,26 +1008,26 @@ public class Rules {
 	// ---------- koniec update by Krystian B. 28.05.2013
 
 	/**
-	 * Funkcja zwracająca sasieada najczęściej występującego w sąsiedztwie
-	 * Moor'a z periodycznością.
+	 * Funkcja zwracajaca sasiada najczesciej wystepujacego w sasiedztwie
+	 * Moor'a z periodycznoscia.
 	 * 
 	 * @param x
-	 *            pozioma współrzędna badanego ziarna
+	 *            pozioma wspo�rzedna badanego ziarna
 	 * @param y
-	 *            pionowa współrzędna badanego ziarna
+	 *            pionowa wspo�rzedna badanego ziarna
 	 * @param tab
-	 *            obszar w jakim znajduje się ziarno
+	 *            obszar w jakim znajduje sie ziarno
 	 * @param size
 	 *            rozmiar obszaru
-	 * @return ID ziarna najczęściej występującego w sąsiedztwie. 0 dla braku
-	 *         sąsiadów
+	 * @return ID ziarna najczesciej wystepujacego w sasiedztwie. 0 dla braku
+	 *         sasiadow
 	 */
 	public static int calcMooreP(int x, int y, int tab[][], int size) {
 
 		List<Integer> colors = new LinkedList<Integer>();
 		int predominant = 0;
 
-		// góra:-------------------
+		// gora:-------------------
 		if (y == 0) {
 			if (x == 0)
 				colors.add(tab[size - 1][size - 1]);
@@ -1050,7 +1050,7 @@ public class Rules {
 				colors.add(tab[x + 1][y - 1]);
 		}
 
-		// dół:------------------
+		// do�:------------------
 		if (y == size - 1) {
 			if (x == 0)
 				colors.add(tab[size - 1][0]);
@@ -1093,33 +1093,33 @@ public class Rules {
 	}
 
 	/**
-	 * Funkcja zwracająca sasieada najczęściej występującego w sąsiedztwie von
-	 * Neumana z periodycznością.
+	 * Funkcja zwracajaca sasiada najczesciej wystepujacego w sasiedztwie von
+	 * Neumana z periodycznoscia.
 	 * 
 	 * @param x
-	 *            pozioma współrzędna badanego ziarna
+	 *            pozioma wspo�rzedna badanego ziarna
 	 * @param y
-	 *            pionowa współrzędna badanego ziarna
+	 *            pionowa wspo�rzedna badanego ziarna
 	 * @param tab
-	 *            obszar w jakim znajduje się ziarno
+	 *            obszar w jakim znajduje sie ziarno
 	 * @param size
 	 *            rozmiar obszaru
-	 * @return ID ziarna najczęściej występującego w sąsiedztwie. 0 dla braku
-	 *         sąsiadów
+	 * @return ID ziarna najczesciej wystepujacego w sasiedztwie. 0 dla braku
+	 *         sasiadow
 	 */
 	public static int calcVNP(int x, int y, int tab[][], int size) {
 
 		List<Integer> colors = new LinkedList<Integer>();
 		int predominant = 0;
 
-		// góra:-------------------
+		// gora:-------------------
 		if (y == 0) {
 			colors.add(tab[x][size - 1]);
 		} else {
 			colors.add(tab[x][y - 1]);
 		}
 
-		// dół:------------------
+		// do�:------------------
 		if (y == size - 1) {
 
 			colors.add(tab[x][0]);
@@ -1150,33 +1150,33 @@ public class Rules {
 	}
 
 	/**
-	 * Funkcja zwracająca sasieada najczęściej występującego w sąsiedztwie von
+	 * Funkcja zwracajaca sasiada najczesciej wystepujacego w sasiedztwie von
 	 * Neumana.
 	 * 
 	 * @param x
-	 *            pozioma współrzędna badanego ziarna
+	 *            pozioma wspo�rzedna badanego ziarna
 	 * @param y
-	 *            pionowa współrzędna badanego ziarna
+	 *            pionowa wspo�rzedna badanego ziarna
 	 * @param tab
-	 *            obszar w jakim znajduje się ziarno
+	 *            obszar w jakim znajduje sie ziarno
 	 * @param size
 	 *            rozmiar obszaru
-	 * @return ID ziarna najczęściej występującego w sąsiedztwie. 0 dla braku
-	 *         sąsiadów
+	 * @return ID ziarna najczesciej wystepujacego w sasiedztwie. 0 dla braku
+	 *         sasiadow
 	 */
 	public static int calcVN(int x, int y, int tab[][], int size) {
 
 		List<Integer> colors = new LinkedList<Integer>();
 		int predominant = 0;
 
-		// góra:-------------------
+		// gora:-------------------
 		if (y == 0) {
 			;
 		} else {
 			colors.add(tab[x][y - 1]);
 		}
 
-		// dół:------------------
+		// do�:------------------
 		if (y == size - 1) {
 
 			;

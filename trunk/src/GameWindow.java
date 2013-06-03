@@ -9,9 +9,9 @@ import java.util.Random;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
  
-/**Klasa wizualizuj¹ca kolejne cykle ¿ycia.
+/**Klasa wizualizujaca kolejne cykle zycia.
  * @author Mateusz Kaflowski, Marcin G³adosz, Krystian Bersztolc, Witold
- *         Gramatyka, Micha³ Grabarczyk
+ *         Gramatyka, Michal Grabarczyk
  * @version 1.0
  * @since 2013-05-27
  */
@@ -22,13 +22,13 @@ public class GameWindow extends JPanel {
        
         /**Szerokoœæ pojedynczej komórki.*/
         public static final int WIDTH = 5;
-        /**OpóŸnienie miêdzy cyklami ¿ycia.*/
+        /**OpóŸnienie miêdzy cyklami zycia.*/
         public static int delay = 100;
  
         public static int thickness = 1;
-        /**Kolekcja wszystkich kolorów reprezentuj¹cych rodzaje ziaren.*/
+        /**Kolekcja wszystkich kolorów reprezentujacych rodzaje ziaren.*/
         public static ArrayList<Color> colors;
-        /**Liczba wszytkich kolorów reprezentuj¹cych rodzaje ziaren.*/
+        /**Liczba wszytkich kolorów reprezentujacych rodzaje ziaren.*/
         public static int colorCounter = 0;
  
         public GameWindow() {
@@ -62,7 +62,7 @@ public class GameWindow extends JPanel {
         }
 
         /**
-    	 * Funkcja generuj¹ca kolejny cykl ¿ycia ziaren.
+    	 * Funkcja generujaca kolejny cykl zycia ziaren.
     	 */
     	public void iterate() {
     		while (true) {
@@ -76,18 +76,40 @@ public class GameWindow extends JPanel {
     		}
     	}
 
+    	/**
+    	 * Funkcja generujaca podana liczbe wykonan Monte Carlo.
+    	 */
 		public void iterateMonteCarlo() {
-			// TODO Auto-generated method stub
-			
+			MonteCarlo mc = new MonteCarlo(automat);
+			int toDo = Integer.parseInt(MyWindow.tfMC.getText());
+			while(toDo>0){
+				mc.oneStep();
+				repaint();
+				toDo--;
+			}
+			MyWindow.btnMonteCarlo.setEnabled(true);
+			MyWindow.btnReclystallization.setEnabled(true);
 		}
 
+		/**
+    	 * Funkcja generujaca kolejny cykl rekrystalizacji.
+    	 */
 		public void iterateReclystallization() {
-			// TODO Auto-generated method stub
-			
+			while (true) {
+				Recrystallization.calcDislocation();
+				Recrystallization.putDislocation();
+				Recrystallization.updateState();
+				repaint();
+				try {
+					Thread.sleep(delay);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 
 /**
-         * Funkcja czyszcz¹ca obszar.
+         * Funkcja czyszczaca obszar.
          */
         public void clear() {
                 automat.clear();
