@@ -43,7 +43,7 @@ public class Recrystallization {
                                         / (GameWindow.automat.size * GameWindow.automat.size);
                         for (int i = 0; i < GameWindow.automat.size; i++)
                                 for (int j = 0; j < GameWindow.automat.size; j++) {
-                                        GameWindow.automat.cells[i][j].disloacation += deltaDis;
+                                        GameWindow.automat.cells[i][j].dislocation += deltaDis;
                                 }
                 }
         }
@@ -53,7 +53,7 @@ public class Recrystallization {
                 GameWindow.automat.genNextR();
                 for (int i = 0; i < GameWindow.automat.size; i++)
                         for (int j = 0; j < GameWindow.automat.size; j++) {
-                                if (GameWindow.automat.cells[i][j].disloacation >= disMax
+                                if (GameWindow.automat.cells[i][j].dislocation >= disMax
                                                 && GameWindow.automat.cells[i][j].isOnBorder()
                                                 && !GameWindow.automat.cells[i][j].recrystallized) {
  
@@ -79,14 +79,14 @@ public class Recrystallization {
                                         // ------------------------------
                                         Random rand = new Random();
                                         GameWindow.automat.cells[i][j].recrystallized = true;
-                                        GameWindow.automat.cells[i][j].disloacation = 0;
+                                        GameWindow.automat.cells[i][j].dislocation = 0;
                                         GameWindow.colorCounter++;
                                         GameWindow.colors.add(new Color(rand.nextInt(255), rand
                                                         .nextInt(255), rand.nextInt(255)));
                                         GameWindow.automat.setState(GameWindow.colorCounter, i, j);
                                         GameWindow.automat.tabR[i][j] = GameWindow.colorCounter;
                                         GameWindow.automat.cells[i][j].recrystallized = true;
-                                        GameWindow.automat.cells[i][j].disloacation = 0;
+                                        GameWindow.automat.cells[i][j].dislocation = 0;
                                 }
                                 if (GameWindow.automat.tabR[i][j] != 0) {
                                         GameWindow.automat.tab[i][j] = GameWindow.automat.tabR[i][j];
