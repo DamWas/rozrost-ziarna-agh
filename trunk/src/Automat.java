@@ -34,8 +34,8 @@ public class Automat {
 	/** Zmienna okreslajaca periodycznosc. */
 	public static boolean isPeriodic = false;
 	
-	Thread[] thread;
-	int t;
+	int tmp[][];
+	MyThread[] thread;
 	
 
 	// KONSTRUKTORY:----------------
@@ -56,16 +56,21 @@ public class Automat {
 			for (int j = 0; j < size; j++)
 				cells[i][j] = new Cell(i, j);
 		
+		tmp = new int[size][size];
+		
+		thread = new MyThread[size];
+		for (int i = 0; i < thread.length; i++) {
+			thread[i] = new MyThread(size, i, tmp);
+		}
 		
 
 	}
 
 	/** Funkcja generujaca nastepny cykl zycia. */
-	
 	public void genNext() {
 		
-		final int tmp[][] = new int[size][size];
-		MyThread[] thread = new MyThread[size];
+		tmp = new int[size][size];
+		thread = new MyThread[size];
 		for (int i = 0; i < thread.length; i++) {
 			thread[i] = new MyThread(size, i, tmp);
 		}
@@ -81,7 +86,8 @@ public class Automat {
 				e.printStackTrace();
 			}
 		}
-
+		
+		
 		
 		tab = tmp;
 	}
