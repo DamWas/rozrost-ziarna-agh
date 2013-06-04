@@ -14,6 +14,14 @@ import javax.swing.border.EmptyBorder;
 import mpi.MPI;
 import mpi.Request;
 
+/**
+ * Klasa tworz¹ca g³ówne GUI.
+ * 
+ * @author Mateusz Kaflowski, Marcin Gladosz, Krystian Bersztolc, Witold
+ *         Gramatyka, Michal Grabarczyk
+ * @version 1.0
+ * @since 2013-05-30
+ */
 public class MyWindow extends JFrame {
 
 	private JPanel contentPane;
