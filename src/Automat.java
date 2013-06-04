@@ -30,7 +30,7 @@ public class Automat {
 	 */
 	public int tabR[][];
 	/**
-	 * Tablica posiadajoca informacje ziarnach w poszczegolnych miejscach
+	 * Tablica posiadajaca informacje ziarnach w poszczegolnych miejscach
 	 * obszaru.
 	 */
 	public Cell cells[][];
