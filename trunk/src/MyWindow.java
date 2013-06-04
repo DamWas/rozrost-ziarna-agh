@@ -31,6 +31,8 @@ public class MyWindow extends JFrame {
 	static JButton btnMonteCarlo;
 	static JTextField tfMC;
 	private JLabel lblSpace;
+	private JLabel lblDelay;
+	private JTextField tfDelay;
 
 	/**
 	 * Launch the application.
@@ -320,6 +322,21 @@ public class MyWindow extends JFrame {
 		lblSpace = new JLabel("Space:");
 		lblSpace.setBounds(177, 457, 65, 14);
 		contentPane.add(lblSpace);
+		
+		lblDelay = new JLabel("Delay:");
+		lblDelay.setBounds(39, 367, 65, 14);
+		contentPane.add(lblDelay);
+		
+		tfDelay = new JTextField();
+		tfDelay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				gw.delay = Integer.parseInt(tfDelay.getText());
+			}
+		});
+		tfDelay.setText("100");
+		tfDelay.setColumns(10);
+		tfDelay.setBounds(176, 364, 29, 20);
+		contentPane.add(tfDelay);
 	}
 }
 
