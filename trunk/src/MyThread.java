@@ -7,25 +7,31 @@
  * @since 2013-06-04
  */
 public class MyThread extends Thread implements Runnable {
-	
-	/**szerokoœæ*/
+
+	/** szerokoœæ */
 	int size;
-	/**numer rzêdu*/
+	/** numer rzêdu */
 	int x;
-	/**tablica do której zapisujemy wyniki*/
+	/** tablica do której zapisujemy wyniki */
 	int tmp[][];
-	public MyThread(int size, int x, int tmp[][]) {
+	int rowStart;
+	int rowEnd;
+
+	public MyThread(int size, int x, int tmp[][], int start, int end) {
 		this.x = x;
 		this.size = size;
 		this.tmp = tmp;
+		this.rowStart = start;
+		this.rowEnd = end;
 	}
-	
+
 	@Override
 	public void run() {
-		for (int y = 0; y < size; y++) {
-			Automat.switchNext(tmp, x, y);
-		}
+		for (int i = rowStart; i < rowEnd; i++)
+			for (int y = 0; y < size; y++) {
+				Automat.switchNext(tmp, i, y);
+			}
 		super.run();
 	}
-	
+
 }
