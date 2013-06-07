@@ -37,6 +37,8 @@ public class Automat {
 	int tmp[][];
 	MyThread[] thread;
 	
+	int threadNumber = 10;
+	
 
 	// KONSTRUKTORY:----------------
 	public Automat(final int size) {
@@ -58,27 +60,31 @@ public class Automat {
 		
 		tmp = new int[size][size];
 		
-		thread = new MyThread[size];
-		for (int i = 0; i < thread.length; i++) {
-			thread[i] = new MyThread(size, i, tmp);
+		thread = new MyThread[threadNumber];
+		for (int i = 0; i < threadNumber; i++) {
+			thread[i] = new MyThread(size, i, tmp,i*(100/threadNumber),(i+1)*(100/threadNumber));
 		}
 		
 
 	}
 
+	long startTime;
+	long stopTime;
 	/** Funkcja generujaca nastepny cykl zycia. */
 	public void genNext() {
 		
 		tmp = new int[size][size];
-		thread = new MyThread[size];
-		for (int i = 0; i < thread.length; i++) {
-			thread[i] = new MyThread(size, i, tmp);
+		thread = new MyThread[threadNumber];
+		for (int i = 0; i < threadNumber; i++) {
+			thread[i] = new MyThread(size, i, tmp,0,(i+1)*(100/threadNumber));
 		}
 		
-		for (int i = 0; i < thread.length; i++) {
+		//CZAS START
+				startTime = System.nanoTime();
+		for (int i = 0; i < threadNumber; i++) {
 			thread[i].start();
 		}
-		for (int i = 0; i < thread.length; i++) {
+		for (int i = 0; i < threadNumber; i++) {
 			try {
 				thread[i].join();
 			} catch (InterruptedException e) {
@@ -90,6 +96,9 @@ public class Automat {
 		
 		
 		tab = tmp;
+		
+		stopTime = System.nanoTime();
+		System.out.println((stopTime - startTime));
 	}
 
 	/**
