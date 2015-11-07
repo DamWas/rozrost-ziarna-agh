@@ -1,0 +1,1 @@
+Program symulujący rozrost ziarna oraz rekrystalizację statyczną i dynamiczną.
